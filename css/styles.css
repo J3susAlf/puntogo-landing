@@ -354,11 +354,15 @@ a {
   overflow: hidden;
 }
 
+.hero-section .container {
+  max-width: 1280px;
+}
+
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 0.92fr 1.18fr;
   align-items: center;
-  gap: 48px;
+  gap: 44px;
 }
 
 .hero-content {
@@ -409,37 +413,39 @@ a {
   color: var(--accent);
 }
 
-/* Mockup Showcase */
+/* Mockup Showcase - Versión Ampliada y de Alta Visibilidad */
 .mockup-container {
   position: relative;
+  width: 100%;
 }
 
 .mockup-card-primary {
   background: #ffffff;
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.05);
+  border: 1px solid #cbd5e1;
+  border-radius: 22px;
+  box-shadow: 0 30px 75px -15px rgba(11, 37, 69, 0.22), 0 0 0 1px rgba(11, 37, 69, 0.08);
   overflow: hidden;
   transition: transform 0.4s ease;
 }
 
 .mockup-header-bar {
-  background: #0f1e31;
-  padding: 12px 18px;
+  background: #0b1a2d;
+  padding: 14px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #ffffff;
+  font-size: 0.92rem;
 }
 
 .mockup-dots {
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 
@@ -448,114 +454,134 @@ a {
 .dot.green { background: #10b981; }
 
 .mockup-body {
-  padding: 18px;
+  padding: 24px;
   background: #f8fafc;
 }
 
 .screen-pos-preview {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 14px;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 18px;
 }
 
 .pos-catalog-mini {
   background: #ffffff;
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 16px;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .mini-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .mini-product {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 8px;
-  font-size: 0.72rem;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #1e293b;
+  transition: all 0.2s ease;
+}
+
+.mini-product:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
 }
 
 .mini-price {
-  color: var(--primary);
-  font-size: 0.8rem;
+  color: #0b2545;
+  font-size: 0.98rem;
   font-weight: 800;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .pos-cart-mini {
   background: #ffffff;
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 16px;
   border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .cart-items-mini {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: #334155;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .cart-total-mini {
   border-top: 1px dashed #cbd5e1;
-  padding-top: 8px;
-  margin-top: 8px;
+  padding-top: 10px;
+  margin-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--gray-900);
 }
 
 .mini-btn-charge {
   background: #10b981;
   color: #ffffff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 0.88rem;
   font-weight: 800;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 12px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-/* Floating KDS notification pill */
+.mini-btn-charge:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Floating Modular notification pill - Versión Más Visible */
 .floating-kds-pill {
   position: absolute;
-  bottom: -20px;
-  left: -20px;
+  bottom: -22px;
+  left: -22px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 12px 18px;
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.16);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 22px;
+  box-shadow: 0 20px 45px rgba(11, 37, 69, 0.2), 0 0 0 1px rgba(11, 37, 69, 0.05);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   animation: floatBounce 4s ease-in-out infinite;
+  z-index: 10;
 }
 
 .kds-pill-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: #ecfdf5;
   color: #059669;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
+  flex-shrink: 0;
 }
 
 @keyframes floatBounce {
@@ -1385,26 +1411,26 @@ input:checked + .toggle-slider:before {
   transform: translateX(22px);
 }
 
-/* Hero Mockup Tabs Switcher */
+/* Hero Mockup Tabs Switcher - Versión Ampliada */
 .mockup-tabs-bar {
   display: flex;
   background: #09131f;
-  padding: 4px 8px 0;
-  gap: 4px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 6px 14px 0;
+  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   overflow-x: auto;
 }
 
 .mockup-tab-pill {
-  padding: 6px 12px;
-  font-size: 0.72rem;
+  padding: 9px 18px;
+  font-size: 0.84rem;
   font-weight: 700;
   color: #94a3b8;
   cursor: pointer;
-  border-radius: 6px 6px 0 0;
+  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: all 0.2s ease;
   white-space: nowrap;
   background: transparent;
@@ -1413,7 +1439,7 @@ input:checked + .toggle-slider:before {
 
 .mockup-tab-pill:hover {
   color: #ffffff;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .mockup-tab-pill.active {
