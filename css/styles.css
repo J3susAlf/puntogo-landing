@@ -5,11 +5,16 @@
    ========================================================================== */
 
 :root {
-  --primary: #0f4c81;
-  --primary-dark: #0a355c;
-  --primary-light: #1e6cb0;
-  --primary-gradient: linear-gradient(135deg, #0a3258 0%, #0f4c81 50%, #0284c7 100%);
-  --secondary: #0ea5e9;
+  /* PuntoGo Brand Tokens */
+  --brand-punto: #0b2545;       /* Azul Obsidiana: Solidez, seguridad bancaria y precisión de caja */
+  --brand-cobalt: #0f4c81;      /* Azul Cobalto: Operativa del sistema, dashboard y navegación */
+  --brand-go: #10b981;          /* Verde Esmeralda: Cierre de venta, cobro veloz y crecimiento */
+  --brand-amber: #f59e0b;       /* Ámbar Dinámico: KDS, comandas en tiempo real y alertas */
+  
+  --primary: #0b2545;
+  --primary-dark: #07192f;
+  --primary-light: #163b66;
+  --secondary: #0f4c81;
   --accent: #10b981;
   --accent-glow: rgba(16, 185, 129, 0.25);
   --warning: #f59e0b;
@@ -128,7 +133,7 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-/* Buttons */
+/* Buttons - PuntoGo Tactile Signature Style (Sin degradados genéricos) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -138,58 +143,110 @@ a {
   border-radius: var(--radius-md);
   font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.2px;
   cursor: pointer;
-  border: none;
-  transition: var(--transition-normal);
+  border: 1px solid transparent;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: center;
+  position: relative;
+  user-select: none;
 }
 
+/* Botón Primario: Azul Obsidiana PuntoGo (Sólido, autoritario, táctil) */
 .btn-primary {
-  background: var(--primary-gradient);
-  color: var(--white);
-  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.25);
+  background-color: #0b2545;
+  color: #ffffff;
+  border: 1px solid #163b66;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+              0 3px 6px rgba(11, 37, 69, 0.16), 
+              0 8px 18px rgba(11, 37, 69, 0.18);
 }
 
 .btn-primary:hover {
+  background-color: #123762;
+  border-color: #21548f;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(15, 76, 129, 0.35);
-  color: var(--white);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 
+              0 6px 12px rgba(11, 37, 69, 0.22), 
+              0 14px 26px rgba(11, 37, 69, 0.25);
+  color: #ffffff;
 }
 
+.btn-primary:active {
+  background-color: #07192f;
+  border-color: #0e2949;
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 
+              0 2px 4px rgba(11, 37, 69, 0.15);
+}
+
+.btn-primary span:last-child {
+  transition: transform 0.2s ease;
+}
+
+.btn-primary:hover span:last-child {
+  transform: translateX(3px);
+}
+
+/* Botón WhatsApp: Verde Esmeralda de Acción Sólido */
 .btn-whatsapp {
-  background: #25D366;
+  background-color: #16a34a;
   color: #ffffff;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  border: 1px solid #15803d;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 
+              0 3px 6px rgba(22, 163, 74, 0.2), 
+              0 8px 18px rgba(22, 163, 74, 0.22);
 }
 
 .btn-whatsapp:hover {
-  background: #20ba59;
+  background-color: #15803d;
+  border-color: #166534;
   transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 
+              0 6px 12px rgba(22, 163, 74, 0.25), 
+              0 14px 26px rgba(22, 163, 74, 0.28);
   color: #ffffff;
 }
 
+.btn-whatsapp:active {
+  background-color: #14532d;
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35), 
+              0 2px 4px rgba(22, 163, 74, 0.15);
+}
+
+/* Botón Secundario: Blanco Puro con Contorno Nítido Pizarra */
 .btn-secondary {
-  background: var(--white);
-  color: var(--primary);
-  border: 1.5px solid var(--gray-200);
+  background-color: #ffffff;
+  color: #0b2545;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05), 
+              0 3px 8px rgba(15, 23, 42, 0.04);
 }
 
 .btn-secondary:hover {
-  border-color: var(--primary);
-  background: var(--gray-50);
+  border-color: #0b2545;
+  background-color: #f8fafc;
+  color: #0b2545;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 37, 69, 0.12);
+}
+
+.btn-secondary:active {
+  background-color: #f1f5f9;
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.1);
 }
 
 .btn-sm {
-  padding: 8px 16px;
+  padding: 8px 18px;
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
 }
 
 .btn-lg {
-  padding: 16px 32px;
-  font-size: 1.05rem;
+  padding: 15px 30px;
+  font-size: 1.02rem;
 }
 
 /* Header & Navigation */
@@ -223,14 +280,16 @@ a {
 }
 
 .logo-icon {
-  background: var(--primary-gradient);
-  color: var(--white);
-  padding: 6px 12px;
+  background-color: #0b2545;
+  color: #ffffff;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   letter-spacing: 0.5px;
   font-size: 1.15rem;
   display: inline-block;
-  box-shadow: 0 4px 12px rgba(15, 76, 129, 0.25);
+  border: 1px solid #163b66;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+              0 3px 10px rgba(11, 37, 69, 0.2);
   white-space: nowrap;
 }
 
