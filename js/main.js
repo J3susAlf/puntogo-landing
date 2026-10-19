@@ -228,9 +228,30 @@ function initGirosAndModules() {
    2. Billing Toggle (Mensual vs Anual)
    ---------------------------------------------------- */
 const PRICING_DATA = {
-  basico: { monthly: 449, annual: 4490, annualMonthEquivalent: 374 },
-  pro: { monthly: 899, annual: 8990, annualMonthEquivalent: 749 },
-  empresarial: { monthly: 1699, annual: 16990, annualMonthEquivalent: 1415 },
+  basico: {
+    monthly: 399,
+    annual: 3990,
+    annualMonthEquivalent: 332,
+    savingsAnnual: 798,
+    dailyMonthly: 13,
+    dailyAnnual: 11,
+  },
+  pro: {
+    monthly: 699,
+    annual: 6990,
+    annualMonthEquivalent: 582,
+    savingsAnnual: 1398,
+    dailyMonthly: 23,
+    dailyAnnual: 19,
+  },
+  empresarial: {
+    monthly: 1299,
+    annual: 12990,
+    annualMonthEquivalent: 1082,
+    savingsAnnual: 2598,
+    dailyMonthly: 43,
+    dailyAnnual: 36,
+  },
 };
 
 function initBillingToggle() {
@@ -243,34 +264,53 @@ function initBillingToggle() {
     empresarial: document.getElementById("price-empresarial"),
   };
 
+  const dailyBadges = {
+    basico: document.getElementById("daily-basico"),
+    pro: document.getElementById("daily-pro"),
+    empresarial: document.getElementById("daily-empresarial"),
+  };
+
+  const annualSubtexts = {
+    basico: document.getElementById("subtext-basico"),
+    pro: document.getElementById("subtext-pro"),
+    empresarial: document.getElementById("subtext-empresarial"),
+  };
+
   const periodLabels = document.querySelectorAll(".pricing-period");
-  const annualSubtexts = document.querySelectorAll(".pricing-billed-annual");
 
   const updatePrices = (isAnnual) => {
     Object.keys(PRICING_DATA).forEach((planKey) => {
-      const el = amounts[planKey];
-      if (!el) return;
-
       const data = PRICING_DATA[planKey];
-      if (isAnnual) {
-        el.textContent = `$${data.annualMonthEquivalent}`;
-      } else {
-        el.textContent = `$${data.monthly}`;
+      const el = amounts[planKey];
+      const dailyEl = dailyBadges[planKey];
+      const subtextEl = annualSubtexts[planKey];
+
+      if (el) {
+        el.textContent = isAnnual ? `$${data.annualMonthEquivalent}` : `$${data.monthly}`;
+      }
+
+      if (dailyEl) {
+        const dailyCost = isAnnual ? data.dailyAnnual : data.dailyMonthly;
+        dailyEl.textContent = `⚡ Inversión: ~$${dailyCost} MXN al día`;
+      }
+
+      if (subtextEl) {
+        subtextEl.style.display = isAnnual ? "block" : "none";
+        subtextEl.textContent = `Facturado anualmente ($${data.annual.toLocaleString("es-MX")} MXN • Ahorras $${data.savingsAnnual.toLocaleString("es-MX")})`;
       }
     });
 
     periodLabels.forEach((label) => {
       label.textContent = isAnnual ? "MXN/mes (anual)" : "MXN/mes";
     });
-
-    annualSubtexts.forEach((subtext) => {
-      subtext.style.display = isAnnual ? "block" : "none";
-    });
   };
 
   toggle.addEventListener("change", (e) => {
     updatePrices(e.target.checked);
   });
+
+  // Run initial state (starts on annual checked)
+  updatePrices(toggle.checked);
 }
 
 /* ----------------------------------------------------
