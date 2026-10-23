@@ -1,3 +1,6 @@
+/* Google Fonts - Nunito Sans Variable */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 /* ==========================================================================
    PuntoGo Landing Page - Design System & Modern Styles
    Palette: Deep Slate (#0f172a), Oceanic Blue (#0f4c81), Vibrant Teal (#0ea5e9),
@@ -44,7 +47,7 @@
   
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-main: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 *, *::before, *::after {
@@ -63,6 +66,10 @@ html {
 
 body {
   font-family: var(--font-main);
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
   color: var(--gray-800);
   background-color: #ffffff;
   line-height: 1.6;
@@ -70,6 +77,24 @@ body {
   max-width: 100vw;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-variation-settings: inherit;
+}
+
+.nunito-sans {
+  font-family: "Nunito Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
 }
 
 /* Typography Helpers */
