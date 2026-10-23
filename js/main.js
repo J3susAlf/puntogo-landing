@@ -277,8 +277,13 @@ function initBillingToggle() {
   };
 
   const periodLabels = document.querySelectorAll(".pricing-period");
+  const saveBadge = document.getElementById("saveBadgeAnnual");
 
   const updatePrices = (isAnnual) => {
+    if (saveBadge) {
+      saveBadge.style.display = isAnnual ? "inline-block" : "none";
+    }
+
     Object.keys(PRICING_DATA).forEach((planKey) => {
       const data = PRICING_DATA[planKey];
       const el = amounts[planKey];
