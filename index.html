@@ -38,7 +38,8 @@
   <header class="site-header">
     <div class="container navbar">
       <a href="#" class="brand-logo" aria-label="PuntoGo Inicio">
-        <span class="logo-icon">PuntoGo</span>
+        <img src="assets/logo-icon.svg" alt="PuntoGo Logo" style="width: 34px; height: 34px; object-fit: contain; flex-shrink: 0;" />
+        <span style="font-weight: 900; letter-spacing: -0.5px; font-size: 1.35rem; color: #0a2a4a;">PUNTO<span style="color: #00b4d8;">GO</span></span>
       </a>
 
       <ul class="nav-links">
@@ -1745,7 +1746,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="brand-logo" style="color:#ffffff; margin-bottom:12px;">
-            <span class="logo-icon">PuntoGo</span>
+            <img src="assets/logo-icon.svg" alt="PuntoGo Logo" style="width: 32px; height: 32px; object-fit: contain; flex-shrink: 0;" />
+            <span style="font-weight: 900; letter-spacing: -0.5px; font-size: 1.3rem; color: #ffffff;">PUNTO<span style="color: #38bdf8;">GO</span></span>
           </div>
           <p style="font-size: 0.85rem; color:#94a3b8; line-height: 1.5;">
             Sistema POS y ERP Modular diseñado para impulsar micro y pequeñas empresas: Tiendas, Restaurantes, Servicios
@@ -1787,10 +1789,55 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 PuntoGo POS. Todos los derechos reservados. Diseñado para potenciar el comercio local.</p>
+        <p>© 2026 PuntoGo POS. Todos los derechos reservados. Diseñado para potenciar el comercio local. • <a href="#terminos" onclick="document.getElementById('modal-terminos').style.display='flex'; return false;" style="color:#38bdf8; text-decoration:underline; font-weight:600;">Términos de Servicio & Aviso de Privacidad</a></p>
       </div>
     </div>
   </footer>
+
+  <!-- ==================== MODAL DE TÉRMINOS & PRIVACIDAD ==================== -->
+  <div id="modal-terminos" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(15,23,42,0.8); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#ffffff; color:#1e293b; max-width:640px; width:100%; border-radius:12px; max-height:85vh; overflow-y:auto; box-shadow:0 20px 25px -5px rgba(0,0,0,0.3); padding:28px 24px; position:relative; font-family:'Nunito Sans', sans-serif;">
+      <button onclick="document.getElementById('modal-terminos').style.display='none';" style="position:absolute; top:16px; right:16px; background:#f1f5f9; border:none; font-size:20px; width:34px; height:34px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:bold;">&times;</button>
+      
+      <h3 style="color:#0f172a; font-size:1.35rem; font-weight:800; margin-bottom:6px; border-bottom:2px solid #0f4c81; padding-bottom:8px;">
+        Términos y Condiciones del Servicio & Aviso de Privacidad
+      </h3>
+      <p style="font-size:0.8rem; color:#64748b; margin-bottom:16px;">PuntoGo POS · Plataforma de Gestión Empresarial en la Nube (SaaS)</p>
+
+      <div style="font-size:0.9rem; line-height:1.55; color:#334155; display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <h4 style="color:#0f4c81; font-weight:800; font-size:0.95rem; margin-bottom:4px;">1. Modalidad del Servicio (SaaS)</h4>
+          <p>PuntoGo se otorga bajo el esquema de Software como Servicio en la nube (SaaS). El usuario adquiere una suscripción de uso temporal según el plan contratado (Básico, Pro Negocio o Empresarial), incluyendo actualizaciones, estabilidad en infraestructura y soporte técnico.</p>
+        </div>
+
+        <div>
+          <h4 style="color:#0f4c81; font-weight:800; font-size:0.95rem; margin-bottom:4px;">2. Deslinde de Responsabilidad Operativa</h4>
+          <p>PuntoGo provee la plataforma como herramienta tecnológica para agilizar las operaciones del comercio. Por tanto, <strong>no nos hacemos responsables de pérdidas económicas, lucro cesante o contingencias derivadas de:</strong></p>
+          <ul style="padding-left:20px; margin-top:6px; display:flex; flex-direction:column; gap:4px;">
+            <li>Cortes o fallas en el suministro de energía eléctrica o hardware propio del cliente.</li>
+            <li>Caídas, lentitud o interrupción del proveedor de internet o red Wi-Fi/LAN del cliente.</li>
+            <li>Fraudes, robos, mermas, errores humanos o eliminación voluntaria o accidental de productos, inventario, ventas o catálogos cometidos por empleados, cajeros o personal asignado por el negocio.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:#0f4c81; font-weight:800; font-size:0.95rem; margin-bottom:4px;">3. Vigencia y Suspensión por Falta de Pago</h4>
+          <p>El servicio se renueva cada 30 días en planes mensuales o cada 365 días en planes anuales. <strong>PuntoGo se reserva la facultad de suspender o restringir el acceso operativo</strong> a la cuenta, módulos y sucursales en caso de que el cliente no liquide la mensualidad o anualidad oportunamente tras el vencimiento de su periodo de suscripción o de prueba de 15 días.</p>
+        </div>
+
+        <div>
+          <h4 style="color:#0f4c81; font-weight:800; font-size:0.95rem; margin-bottom:4px;">4. Propiedad y Privacidad de los Datos</h4>
+          <p>Toda la información registrada por el cliente (catálogos de productos, precios, clientes, ventas y existencias) es propiedad exclusiva del negocio. PuntoGo garantiza la confidencialidad de la información y no la vende ni la comparte con terceros.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; text-align:right;">
+        <button onclick="document.getElementById('modal-terminos').style.display='none';" class="btn btn-primary btn-sm" style="background:#0f4c81; padding:8px 22px; border-radius:6px; font-weight:700;">
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== BOTÓN FLOTANTE WHATSAPP ==================== -->
   <a href="#" class="whatsapp-floating-btn" data-whatsapp-plan="FLOTANTE" aria-label="Escribir por WhatsApp">
