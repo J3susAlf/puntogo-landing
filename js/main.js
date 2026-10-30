@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initWhatsAppLinks();
   initMobileMenu();
   initPricingTableFilter();
+  initDeliveryVideoPlayer();
 });
 
 /* ----------------------------------------------------
@@ -536,6 +537,7 @@ function initMockupTabs() {
     else if (viewId === "mockup-cotiza") runQuoteSimulation();
     else if (viewId === "mockup-kds") runKdsSimulation();
     else if (viewId === "mockup-modulos") runModulesSimulation();
+    else if (viewId === "mockup-delivery") runDeliverySimulation();
   };
 
   tabs.forEach((tab) => {
@@ -575,6 +577,7 @@ const GIROS_PRESETS = {
       hasMultiWarehouse: false,
       hasHR: false,
       hasRestaurantFeatures: false,
+      hasDelivery: false,
     },
   },
   restaurant: {
@@ -588,6 +591,7 @@ const GIROS_PRESETS = {
       hasCustomers: false,
       hasMultiWarehouse: false,
       hasHR: false,
+      hasDelivery: true,
     },
   },
   commercial: {
@@ -601,6 +605,7 @@ const GIROS_PRESETS = {
       hasMultiWarehouse: false,
       hasHR: false,
       hasRestaurantFeatures: false,
+      hasDelivery: false,
     },
   },
   enterprise: {
@@ -614,6 +619,7 @@ const GIROS_PRESETS = {
       hasHR: true,
       hasCustomers: true,
       hasInventory: true,
+      hasDelivery: true,
     },
   },
 };
@@ -972,6 +978,7 @@ function initMobileMenu() {
    ---------------------------------------------------- */
 function initPricingTableFilter() {
   const filterBtns = document.querySelectorAll(".table-filter-btn");
+  if (!filterBtns.length) return;
   const categoryRows = document.querySelectorAll(".pricing-table .category-row");
   const toggleAllBtn = document.getElementById("toggleAllRowsBtn");
   let isAllCollapsed = false;
@@ -1040,4 +1047,353 @@ function initPricingTableFilter() {
       });
     });
   }
+}
+
+
+/* ==========================================================================
+   5. DELIVERY MOCKUP SIMULATION (HERO SWITCHER)
+   ========================================================================== */
+
+function runDeliverySimulation() {
+  clearSimTimeouts();
+  const view = document.getElementById("mockup-delivery");
+  if (!view || !view.classList.contains("active")) return;
+
+  const cursor = document.getElementById("demo-cursor-deliv");
+  const pulse = document.getElementById("demo-pulse-deliv");
+  const rappiSwitch = document.getElementById("demo-rappi-switch-hero");
+  const rappiInput = document.getElementById("demo-rappi-input-hero");
+  const btnCopy = document.getElementById("demo-btn-copy-hero");
+  const btnSim = document.getElementById("demo-btn-sim-hero");
+  const toast = document.getElementById("demo-delivery-toast-hero");
+  const badgeRappi = document.getElementById("demo-mock-rappi-badge");
+
+  // Reset initial state
+  if (rappiSwitch) rappiSwitch.className = "demo-toggle-switch off";
+  if (rappiInput) rappiInput.value = "";
+  if (btnCopy) {
+    btnCopy.textContent = "Copiar";
+    btnCopy.style.background = "#e2e8f0";
+    btnCopy.style.color = "#0f172a";
+  }
+  if (toast) toast.classList.remove("show");
+  if (badgeRappi) {
+    badgeRappi.textContent = "Rappi ⚪";
+    badgeRappi.style.background = "#f1f5f9";
+    badgeRappi.style.color = "#64748b";
+    badgeRappi.style.borderColor = "#cbd5e1";
+  }
+  if (cursor) {
+    cursor.style.left = "40%";
+    cursor.style.top = "30%";
+  }
+
+  // 1. Mover cursor al switch de Rappi
+  simTimeout(() => {
+    moveCursorTo(cursor, rappiSwitch, pulse);
+  }, 700);
+
+  // 2. Clic switch -> Se activa
+  simTimeout(() => {
+    triggerClick(cursor, pulse);
+    if (rappiSwitch) rappiSwitch.className = "demo-toggle-switch on";
+    if (badgeRappi) {
+      badgeRappi.textContent = "Rappi 🟢";
+      badgeRappi.style.background = "#dcfce7";
+      badgeRappi.style.color = "#15803d";
+      badgeRappi.style.borderColor = "#86efac";
+    }
+  }, 1300);
+
+  // 3. Mover a Store ID
+  simTimeout(() => {
+    moveCursorTo(cursor, rappiInput, pulse);
+  }, 2000);
+
+  // 4. Teclear Store ID
+  simTimeout(() => {
+    triggerClick(cursor, pulse);
+    const text = "RP-STORE-MX-0482";
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      if (rappiInput) {
+        rappiInput.value = text.slice(0, i + 1);
+      }
+      i++;
+      if (i >= text.length) clearInterval(typeInterval);
+    }, 40);
+  }, 2400);
+
+  // 5. Mover a botón Copiar Webhook
+  simTimeout(() => {
+    moveCursorTo(cursor, btnCopy, pulse);
+  }, 3400);
+
+  // 6. Clic Copiar Webhook
+  simTimeout(() => {
+    triggerClick(cursor, pulse);
+    if (btnCopy) {
+      btnCopy.textContent = "¡Copiado!";
+      btnCopy.style.background = "#16a34a";
+      btnCopy.style.color = "#ffffff";
+    }
+  }, 4000);
+
+  // 7. Mover a botón Simular Pedido Rappi
+  simTimeout(() => {
+    moveCursorTo(cursor, btnSim, pulse);
+  }, 4800);
+
+  // 8. Clic Simular Pedido Rappi
+  simTimeout(() => {
+    triggerClick(cursor, pulse);
+    if (btnSim) btnSim.style.transform = "scale(0.96)";
+  }, 5400);
+
+  simTimeout(() => {
+    if (btnSim) btnSim.style.transform = "scale(1)";
+    if (toast) toast.classList.add("show");
+  }, 5600);
+
+  // 9. Loop
+  simTimeout(() => {
+    runDeliverySimulation();
+  }, 11500);
+}
+
+/* ==========================================================================
+   6. DEDICATED DELIVERY VIDEO DEMONSTRATION PLAYER
+   ========================================================================== */
+
+let videoState = {
+  isPlaying: true,
+  currentTime: 0,
+  duration: 20,
+  timer: null,
+};
+
+function initDeliveryVideoPlayer() {
+  const btnPlay = document.getElementById("btnPlayDeliveryVideo");
+  const btnRestart = document.getElementById("btnRestartDeliveryVideo");
+  const playIcon = document.getElementById("playIcon");
+  const playLabel = document.getElementById("playLabel");
+  const timeDisplay = document.getElementById("videoTimeDisplay");
+  const progressBar = document.getElementById("videoProgressBar");
+  const progressTrack = document.getElementById("videoProgressTrack");
+  const narratorText = document.getElementById("videoNarratorText");
+  const stepMarkers = document.querySelectorAll(".video-step-marker");
+  const stepCards = [
+    document.getElementById("videoStepCard1"),
+    document.getElementById("videoStepCard2"),
+    document.getElementById("videoStepCard3"),
+  ];
+
+  const cursor = document.getElementById("videoVirtualCursor");
+  const pulse = document.getElementById("videoVirtualPulse");
+  const rappiSwitch = document.getElementById("videoRappiSwitch");
+  const rappiBadge = document.getElementById("videoRappiBadge");
+  const inputStoreId = document.getElementById("videoInputStoreId");
+  const inputToken = document.getElementById("videoInputToken");
+  const btnCopy = document.getElementById("videoBtnCopy");
+  const btnSimulate = document.getElementById("videoBtnSimulate");
+  const orderToast = document.getElementById("videoOrderToast");
+  const cardRappi = document.getElementById("videoCardRappi");
+
+  if (!btnPlay) return;
+
+  function playChimeSound() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      const ctx = new AudioContext();
+      if (ctx.state === "suspended") ctx.resume();
+
+      const now = ctx.currentTime;
+      // Tone 1
+      const osc1 = ctx.createOscillator();
+      const gain1 = ctx.createGain();
+      osc1.type = "sine";
+      osc1.frequency.setValueAtTime(587.33, now); // D5
+      gain1.gain.setValueAtTime(0.15, now);
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+      osc1.connect(gain1);
+      gain1.connect(ctx.destination);
+      osc1.start(now);
+      osc1.stop(now + 0.35);
+
+      // Tone 2
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = "sine";
+      osc2.frequency.setValueAtTime(880, now + 0.12); // A5
+      gain2.gain.setValueAtTime(0.18, now + 0.12);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(now + 0.12);
+      osc2.stop(now + 0.55);
+    } catch (e) {
+      // Audio not permitted or supported
+    }
+  }
+
+  function updateVideoUI(t) {
+    const total = videoState.duration;
+    const progressPercent = Math.min(100, (t / total) * 100);
+    if (progressBar) progressBar.style.width = `${progressPercent}%`;
+
+    const mins = Math.floor(t / 60);
+    const secs = String(Math.floor(t % 60)).padStart(2, "0");
+    const durMins = Math.floor(total / 60);
+    const durSecs = String(Math.floor(total % 60)).padStart(2, "0");
+    if (timeDisplay) timeDisplay.textContent = `${mins}:${secs} / ${durMins}:${durSecs}`;
+
+    // Step 1: 0 - 5s
+    if (t < 5) {
+      setStepActive(0);
+      if (narratorText) narratorText.textContent = "Paso 1: Activando conexión oficial con Rappi Partners en un clic...";
+      if (rappiSwitch) rappiSwitch.className = t > 1.5 ? "demo-toggle-switch on" : "demo-toggle-switch off";
+      if (rappiBadge) {
+        rappiBadge.textContent = t > 1.5 ? "Rappi: 🟢 Conectado" : "Rappi: ⚪ Desactivado";
+        rappiBadge.style.background = t > 1.5 ? "#dcfce7" : "#f1f5f9";
+        rappiBadge.style.color = t > 1.5 ? "#15803d" : "#64748b";
+      }
+      if (inputStoreId) inputStoreId.value = t > 3 ? "RP-STORE-MX-0482" : "";
+      if (btnCopy) {
+        btnCopy.textContent = "Copiar";
+        btnCopy.classList.remove("copied");
+      }
+      if (orderToast) orderToast.classList.remove("show");
+
+      if (cursor && rappiSwitch) {
+        if (t < 1.5) moveCursorTo(cursor, rappiSwitch, pulse);
+        else if (t < 2.2) triggerClick(cursor, pulse);
+      }
+    }
+    // Step 2: 5 - 10s
+    else if (t < 10) {
+      setStepActive(1);
+      if (narratorText) narratorText.textContent = "Paso 2: Ingresando Store ID oficial provisto por Rappi Aliados...";
+      if (rappiSwitch) rappiSwitch.className = "demo-toggle-switch on";
+      if (inputStoreId) inputStoreId.value = "RP-STORE-MX-0482";
+      if (btnCopy) {
+        btnCopy.textContent = "Copiar";
+        btnCopy.classList.remove("copied");
+      }
+      if (orderToast) orderToast.classList.remove("show");
+
+      if (cursor && inputStoreId) {
+        moveCursorTo(cursor, inputStoreId, pulse);
+      }
+    }
+    // Step 3: 10 - 15s
+    else if (t < 15) {
+      setStepActive(2);
+      if (narratorText) narratorText.textContent = "Paso 3: Copiando URL de Webhook generada en 1 clic para tu portal...";
+      if (inputStoreId) inputStoreId.value = "RP-STORE-MX-0482";
+      if (cursor && btnCopy) {
+        moveCursorTo(cursor, btnCopy, pulse);
+      }
+      if (t >= 12 && btnCopy) {
+        btnCopy.textContent = "¡Copiado!";
+        btnCopy.classList.add("copied");
+      }
+      if (orderToast) orderToast.classList.remove("show");
+    }
+    // Step 4: 15s - 20s (Live Order Received!)
+    else {
+      setStepActive(3);
+      if (narratorText) narratorText.textContent = "¡Listo! Pedido recibido en tiempo real. Entra a Cocina KDS con repartidor.";
+      if (cursor && btnSimulate && t < 16.5) {
+        moveCursorTo(cursor, btnSimulate, pulse);
+      }
+      if (t >= 16.5 && orderToast && !orderToast.classList.contains("show")) {
+        orderToast.classList.add("show");
+        playChimeSound();
+      }
+    }
+  }
+
+  function setStepActive(stepIndex) {
+    stepMarkers.forEach((m, idx) => {
+      if (idx === stepIndex) m.classList.add("active");
+      else m.classList.remove("active");
+    });
+
+    stepCards.forEach((c, idx) => {
+      if (!c) return;
+      if (idx === Math.min(2, stepIndex)) c.classList.add("active-step");
+      else c.classList.remove("active-step");
+    });
+  }
+
+  function startPlayback() {
+    videoState.isPlaying = true;
+    if (playIcon) playIcon.textContent = "⏸";
+    if (playLabel) playLabel.textContent = "Pausar";
+
+    clearInterval(videoState.timer);
+    videoState.timer = setInterval(() => {
+      videoState.currentTime += 0.5;
+      if (videoState.currentTime > videoState.duration) {
+        videoState.currentTime = 0; // Loop seamlessly
+      }
+      updateVideoUI(videoState.currentTime);
+    }, 500);
+  }
+
+  function pausePlayback() {
+    videoState.isPlaying = false;
+    if (playIcon) playIcon.textContent = "▶";
+    if (playLabel) playLabel.textContent = "Reproducir";
+    clearInterval(videoState.timer);
+  }
+
+  function seekTo(targetTime) {
+    videoState.currentTime = Math.max(0, Math.min(videoState.duration, targetTime));
+    updateVideoUI(videoState.currentTime);
+  }
+
+  btnPlay.addEventListener("click", () => {
+    if (videoState.isPlaying) pausePlayback();
+    else startPlayback();
+  });
+
+  if (btnRestart) {
+    btnRestart.addEventListener("click", () => {
+      seekTo(0);
+      startPlayback();
+    });
+  }
+
+  stepMarkers.forEach((marker) => {
+    marker.addEventListener("click", () => {
+      const step = Number(marker.getAttribute("data-step"));
+      if (step === 1) seekTo(0);
+      else if (step === 2) seekTo(5);
+      else if (step === 3) seekTo(10);
+      else if (step === 4) seekTo(15);
+    });
+  });
+
+  stepCards.forEach((card, idx) => {
+    if (!card) return;
+    card.addEventListener("click", () => {
+      if (idx === 0) seekTo(0);
+      else if (idx === 1) seekTo(5);
+      else if (idx === 2) seekTo(10);
+    });
+  });
+
+  if (progressTrack) {
+    progressTrack.addEventListener("click", (e) => {
+      const rect = progressTrack.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      seekTo(ratio * videoState.duration);
+    });
+  }
+
+  // Iniciar reproducción automática
+  startPlayback();
 }

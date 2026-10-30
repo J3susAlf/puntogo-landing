@@ -46,6 +46,7 @@
         <li><a href="#modulos" class="nav-link">Módulos</a></li>
         <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
         <li><a href="#como-funciona" class="nav-link">Funciones</a></li>
+        <li><a href="#delivery" class="nav-link delivery-nav-link">🛵 Delivery</a></li>
         <li><a href="#calculadora" class="nav-link">Calculadora</a></li>
         <li><a href="#planes" class="nav-link">Planes</a></li>
         <li><a href="#faq" class="nav-link">Preguntas</a></li>
@@ -81,11 +82,11 @@
         </p>
 
         <div class="hero-ctas">
-          <a href="#planes" class="btn btn-primary btn-lg">
+          <a href="#planes" class="btn btn-primary">
             <span>Probar 15 Días Gratis</span>
             <span>→</span>
           </a>
-          <a href="#" class="btn btn-whatsapp btn-lg" data-whatsapp-plan="DEMO">
+          <a href="#" class="btn btn-whatsapp" data-whatsapp-plan="DEMO">
             <span>💬</span>
             <span>Demostración por WhatsApp</span>
           </a>
@@ -132,7 +133,8 @@
             <button class="mockup-tab-pill active" data-mockup-target="mockup-pos">🛒 Caja Mostrador</button>
             <button class="mockup-tab-pill" data-mockup-target="mockup-cotiza">💼 Cotizaciones</button>
             <button class="mockup-tab-pill" data-mockup-target="mockup-kds">🍳 Cocina KDS</button>
-            <button class="mockup-tab-pill" data-mockup-target="mockup-modulos">⚙️ Módulos Activos</button>
+            <button class="mockup-tab-pill" data-mockup-target="mockup-modulos">⚙️ Módulos</button>
+            <button class="mockup-tab-pill" data-mockup-target="mockup-delivery" style="border-left: 2px solid #ff5722; color: #ff7849;">🛵 Delivery</button>
           </div>
 
           <div class="mockup-body">
@@ -142,11 +144,11 @@
               <div class="demo-sub-header">
                 <div class="demo-sub-left">
                   <span class="demo-store-name">PuntoDemo 1</span>
-                  <span class="demo-status-pill green">🏠 Local Conectado</span>
-                  <span class="demo-status-pill gray">⏳ Básico: 7d prueba</span>
+                  <span class="demo-status-pill green">🏠 Conectado</span>
+                  <span class="demo-status-pill gray">⏳ 7d prueba</span>
                 </div>
                 <div class="demo-sub-right">
-                  <span class="demo-user-tag">👤 Ricardo (Caja) • Demo 1</span>
+                  <span class="demo-user-tag">👤 Ricardo (Caja)</span>
                 </div>
               </div>
 
@@ -630,6 +632,117 @@
               <div id="demo-pulse-mod" class="demo-click-pulse"></div>
             </div>
 
+            <!-- View 5: Apps Delivery (Rappi & DiDi Food) -->
+            <div id="mockup-delivery" class="mockup-view" style="overflow: hidden; max-width: 100%;">
+              <div class="demo-sub-header" style="padding: 6px 10px; margin-bottom: 8px;">
+                <div class="demo-sub-left">
+                  <span class="demo-store-name" style="font-size:0.75rem;">PuntoDemo 2</span>
+                  <span class="demo-status-pill green" style="font-size:0.65rem; padding:1px 6px;">🟢 Conectado</span>
+                  <span class="demo-status-pill orange" style="background:#fff7ed; color:#ea580c; border:1px solid #fed7aa; font-size:0.65rem; padding:1px 6px;">⭐ Plan Pro</span>
+                </div>
+                <div class="demo-sub-right">
+                  <span id="demo-delivery-status-pill" class="demo-user-tag" style="background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; font-size:0.66rem; padding:2px 6px;">● API en Vivo</span>
+                </div>
+              </div>
+
+              <!-- Bar status compact -->
+              <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:6px 10px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; gap:6px;">
+                <div style="display:flex; align-items:center; gap:5px; flex-shrink:1; min-width:0;">
+                  <span style="font-size:0.72rem; font-weight:800; color:#0f172a; white-space:nowrap;">🛵 Delivery:</span>
+                  <span id="demo-mock-rappi-badge" style="font-size:0.66rem; font-weight:700; padding:1px 6px; border-radius:8px; background:#dcfce7; color:#15803d; border:1px solid #86efac; white-space:nowrap;">Rappi 🟢</span>
+                  <span id="demo-mock-didi-badge" style="font-size:0.66rem; font-weight:700; padding:1px 6px; border-radius:8px; background:#dcfce7; color:#15803d; border:1px solid #86efac; white-space:nowrap;">DiDi 🟢</span>
+                </div>
+                <button id="demo-btn-sim-hero" class="btn btn-primary btn-sm" style="padding:3px 8px; font-size:0.68rem; background:#ff441f; border:none; display:flex; align-items:center; gap:4px; cursor:pointer; white-space:nowrap; flex-shrink:0;">
+                  <span>⚡</span>
+                  <span>Simular Pedido</span>
+                </button>
+              </div>
+
+              <!-- Two Cards Grid (Resumidas y Compactas) -->
+              <div style="display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap:8px; margin-bottom:4px; max-width:100%; box-sizing:border-box;">
+                <!-- Card Rappi -->
+                <div id="demo-card-rappi-hero" style="background:#ffffff; border:1.5px solid #cbd5e1; border-radius:8px; padding:8px 10px; min-width:0; box-sizing:border-box;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; border-bottom:1px solid #f1f5f9; padding-bottom:5px;">
+                    <div style="display:flex; align-items:center; gap:5px; min-width:0;">
+                      <img src="assets/rappi-logo.png" style="width:22px; height:22px; border-radius:4px; object-fit:cover; flex-shrink:0;" alt="Rappi" />
+                      <div style="min-width:0; overflow:hidden;">
+                        <div style="font-size:0.74rem; font-weight:800; color:#0f172a; white-space:nowrap;">Rappi Partners</div>
+                        <div style="font-size:0.6rem; color:#64748b;">POS API Oficial</div>
+                      </div>
+                    </div>
+                    <span id="demo-rappi-switch-hero" class="demo-toggle-switch on" style="flex-shrink:0;"></span>
+                  </div>
+
+                  <div style="font-size:0.64rem; font-weight:700; color:#475569; margin-bottom:1px;">Store ID</div>
+                  <input id="demo-rappi-input-hero" type="text" readonly value="RP-STORE-MX-0482" style="width:100%; min-width:0; padding:3px 5px; font-size:0.66rem; border:1px solid #cbd5e1; border-radius:4px; margin-bottom:5px; box-sizing:border-box; background:#f8fafc;" />
+                  
+                  <div style="font-size:0.64rem; font-weight:700; color:#475569; margin-bottom:1px;">URL de Webhook</div>
+                  <div style="display:flex; gap:3px; min-width:0;">
+                    <input type="text" readonly value="https://api.puntogo.app/webhooks/rappi" style="flex:1; min-width:0; padding:3px 4px; font-size:0.62rem; border:1px solid #cbd5e1; border-radius:4px; background:#f8fafc; color:#64748b; box-sizing:border-box;" />
+                    <button id="demo-btn-copy-hero" style="padding:3px 6px; font-size:0.62rem; font-weight:800; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; flex-shrink:0;">Copiar</button>
+                  </div>
+
+                  <div style="margin-top:6px; font-size:0.62rem; color:#15803d; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; padding:3px 5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ✓ Entra directo a Cocina KDS
+                  </div>
+                </div>
+
+                <!-- Card DiDi Food -->
+                <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:8px; padding:8px 10px; min-width:0; box-sizing:border-box;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; border-bottom:1px solid #f1f5f9; padding-bottom:5px;">
+                    <div style="display:flex; align-items:center; gap:5px; min-width:0;">
+                      <img src="assets/didi-logo.png" style="width:22px; height:22px; border-radius:4px; object-fit:cover; flex-shrink:0;" alt="DiDi Food" />
+                      <div style="min-width:0; overflow:hidden;">
+                        <div style="font-size:0.74rem; font-weight:800; color:#0f172a; white-space:nowrap;">DiDi Food</div>
+                        <div style="font-size:0.6rem; color:#64748b;">Open Platform</div>
+                      </div>
+                    </div>
+                    <span class="demo-toggle-switch on" style="flex-shrink:0;"></span>
+                  </div>
+
+                  <div style="font-size:0.64rem; font-weight:700; color:#475569; margin-bottom:1px;">Store ID</div>
+                  <input type="text" readonly value="DIDI-SHOP-99214" style="width:100%; min-width:0; padding:3px 5px; font-size:0.66rem; border:1px solid #cbd5e1; border-radius:4px; margin-bottom:5px; box-sizing:border-box; background:#f8fafc;" />
+                  
+                  <div style="font-size:0.64rem; font-weight:700; color:#475569; margin-bottom:1px;">URL de Webhook</div>
+                  <div style="display:flex; gap:3px; min-width:0;">
+                    <input type="text" readonly value="https://api.puntogo.app/webhooks/didi" style="flex:1; min-width:0; padding:3px 4px; font-size:0.62rem; border:1px solid #cbd5e1; border-radius:4px; background:#f8fafc; color:#64748b; box-sizing:border-box;" />
+                    <button style="padding:3px 6px; font-size:0.62rem; font-weight:800; background:#e2e8f0; border:none; border-radius:4px; cursor:pointer; flex-shrink:0;">Copiar</button>
+                  </div>
+
+                  <div style="margin-top:6px; font-size:0.62rem; color:#15803d; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; padding:3px 5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ✓ Repartidor y comanda en vivo
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Live Toast in Hero -->
+              <div id="demo-delivery-toast-hero" class="video-order-toast" style="bottom:8px; left:8px; right:8px; padding:8px 12px; box-sizing:border-box;">
+                <div class="toast-header-row" style="padding-bottom:4px; margin-bottom:4px;">
+                  <div style="display:flex; align-items:center; gap:5px;">
+                    <span class="toast-tag-live" style="font-size:0.65rem; padding:1px 5px;">🛵 RAPPI EN VIVO</span>
+                    <h5 class="toast-title" style="font-size:0.82rem;">Pedido #RP-4924 Recibido</h5>
+                  </div>
+                  <span style="font-size:0.72rem; font-weight:800; color:#15803d;">$2,489.16</span>
+                </div>
+                <div class="toast-body-row" style="font-size:0.72rem; margin-bottom:2px;">
+                  <span><strong>Cliente:</strong> Mariana Garza</span>
+                  <span><strong>Código:</strong> #176</span>
+                </div>
+                <div class="toast-body-row" style="font-size:0.72rem; margin-bottom:0;">
+                  <span><strong>Repartidor:</strong> Juan Pérez (Moto Yamaha)</span>
+                  <span class="toast-kds-badge" style="font-size:0.68rem; padding:2px 6px;">🍳 En Cocina</span>
+                </div>
+              </div>
+
+              <!-- Virtual Cursor -->
+              <div id="demo-cursor-deliv" class="demo-virtual-cursor">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <path d="M5.5 3.2L18.5 12L12.5 13.5L9.5 20.8L5.5 3.2Z" fill="#0f172a" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div id="demo-pulse-deliv" class="demo-click-pulse"></div>
+            </div>
+
           </div>
 
           <!-- Playback Status Bar -->
@@ -639,15 +752,6 @@
               <span>Demostración interactiva en código a 60fps • Proceso real</span>
             </div>
             <span class="mockup-playback-hint">💡 Cambia de pestaña para ver el flujo de cada módulo</span>
-          </div>
-        </div>
-
-        <!-- Floating Modular Pill Badge -->
-        <div class="floating-kds-pill">
-          <div class="kds-pill-icon">⚡</div>
-          <div>
-            <div style="font-size: 0.92rem; font-weight: 800; color: #0b2545;">Sistema 100% Modular</div>
-            <div style="font-size: 0.78rem; color: #059669; font-weight: 700;">Pre-configura tu negocio en 1 clic</div>
           </div>
         </div>
       </div>
@@ -882,6 +986,24 @@
             </label>
           </div>
 
+          <!-- Module 9: Delivery (Rappi & DiDi) -->
+          <div class="module-item active" data-module-key="hasDelivery">
+            <div class="module-info">
+              <div class="module-icon">🛵</div>
+              <div class="module-text">
+                <h4>
+                  <span>Delivery (Rappi & DiDi Food)</span>
+                  <span class="module-status-badge on">Activo</span>
+                </h4>
+                <p>Comandas automáticas en Cocina KDS y datos del repartidor en vivo sin recaptura.</p>
+              </div>
+            </div>
+            <label class="module-switch">
+              <input type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
+          </div>
+
         </div>
       </div>
     </div>
@@ -924,6 +1046,15 @@
             <span>✓</span> <strong>Kardex & Alertas:</strong> Control por porción y resurtido automático a tiempo.
           </div>
         </div>
+
+        <div class="problem-card" style="border-top: 3px solid #ff441f;">
+          <span class="problem-icon">🛵</span>
+          <h3 class="problem-title">Caos con pedidos de Rappi y DiDi Food</h3>
+          <p>Múltiples tabletas sonando a la vez, cajeros que escriben pedidos a mano con errores y clientes molestos por retrasos.</p>
+          <div class="solution-tag" style="background:rgba(255, 68, 31, 0.1); border-color:#fed7aa; color:#c2410c;">
+            <span>✓</span> <strong>Comanda Directa en Cocina:</strong> Las órdenes entran en segundos con repartidor y código de entrega.
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -938,14 +1069,15 @@
         </p>
       </div>
 
-      <!-- Feature Tabs Navigation (6 Comprehensive Modules) -->
+      <!-- Feature Tabs Navigation (7 Módulos Conciso en 1 Línea) -->
       <div class="features-tabs-nav">
-        <button class="tab-btn active" data-target="tab-caja">🛒 Caja & Corte Ciego</button>
-        <button class="tab-btn" data-target="tab-cotiza">💼 Cotizaciones & Clientes</button>
-        <button class="tab-btn" data-target="tab-inventario">🗃 Inventario & Compras</button>
+        <button class="tab-btn active" data-target="tab-caja">🛒 Caja & Corte</button>
+        <button class="tab-btn" data-target="tab-cotiza">💼 Cotizaciones</button>
+        <button class="tab-btn" data-target="tab-inventario">🗃 Inventario</button>
         <button class="tab-btn" data-target="tab-bodegas">🏬 Multi-Bodegas</button>
-        <button class="tab-btn" data-target="tab-cocina">🍳 Cocina KDS en Vivo</button>
-        <button class="tab-btn" data-target="tab-personal">👔 Personal & Permisos</button>
+        <button class="tab-btn" data-target="tab-cocina">🍳 Cocina KDS</button>
+        <button class="tab-btn" data-target="tab-personal">👔 Personal</button>
+        <button class="tab-btn" data-target="tab-delivery" style="border-color:#fed7aa; color:#ea580c; font-weight:800;">🛵 Delivery</button>
       </div>
 
       <!-- Tab 1: Caja & Corte Ciego -->
@@ -1161,6 +1293,312 @@
         </div>
       </div>
 
+      <!-- Tab 7: Apps de Delivery (Rappi & DiDi Food) -->
+      <div id="tab-delivery" class="feature-tab-content">
+        <div>
+          <span class="badge badge-light" style="margin-bottom: 12px; background:#fff7ed; color:#c2410c; border:1px solid #fed7aa;">Integración Oficial Delivery</span>
+          <h3>Recibe pedidos de Rappi y DiDi directo a Cocina</h3>
+          <p>Conexión automática en tiempo real: cero recaptura manual y cero pedidos traspapelados.</p>
+          <ul class="feature-bullets">
+            <li><span class="check">✓</span> <strong>Comanda instantánea:</strong> Suena en pantalla KDS de Cocina en cuanto el cliente confirma el pedido.</li>
+            <li><span class="check">✓</span> <strong>Datos del repartidor:</strong> Nombre, vehículo, placas y código de entrega visibles al instante.</li>
+            <li><span class="check">✓</span> <strong>Descuento de stock en vivo:</strong> Las recetas e insumos se descuentan de tu inventario sin retrasos.</li>
+            <li><span class="check">✓</span> <strong>Corte de caja unificado:</strong> Concilia las ventas de delivery junto a tus ventas de mostrador.</li>
+          </ul>
+        </div>
+        <div class="feature-graphic-box">
+          <div style="font-size: 0.85rem; color: #ff6a00; font-weight: 700; margin-bottom: 10px;">🛵 Comanda de Delivery en Pantalla</div>
+          <div style="background: rgba(255,255,255,0.08); padding: 10px 12px; border-radius: 8px; border-left: 4px solid #ff441f; margin-bottom: 8px;">
+            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.82rem;">
+              <span>Rappi #RP-4924 (Mariana G.)</span>
+              <span style="color:#ff6a00;">🛵 Repartidor en camino</span>
+            </div>
+            <div style="font-size:0.78rem; margin-top:3px; color:#cbd5e1;">2x Acrílico 6mm • 1x Cristal 3mm</div>
+            <div style="font-size:0.72rem; margin-top:2px; color:#94a3b8;">Repartidor: Juan Pérez (Moto Yamaha Azul) • Código: #176</div>
+          </div>
+          <div style="background: rgba(16,185,129,0.15); border: 1px solid #10b981; padding: 8px 10px; border-radius: 6px; font-size:0.78rem; font-weight:700;">
+            ✓ Comanda impresa con código de entrega y ticket de salida
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN DESTACADA: CONEXIÓN DELIVERY EN VIVO ==================== -->
+  <section id="delivery" class="delivery-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag delivery-tag">
+          <span>🛵</span>
+          <span>Diferenciador Exclusivo de PuntoGo</span>
+        </div>
+        <h2 class="section-title" style="color: #ffffff;">
+          Conecta Rappi y DiDi Food <span class="gradient-text-delivery">en 60 Segundos</span>
+        </h2>
+        <p class="section-subtitle" style="color: #cbd5e1;">
+          Comandas automáticas directo a Cocina KDS y corte de caja cuadrado sin recaptura manual.
+        </p>
+      </div>
+
+      <div class="delivery-showcase-grid">
+        <!-- Columna Izquierda: Los 3 Pasos y Argumentos Fuertes de Venta -->
+        <div class="delivery-info-col">
+          <div class="delivery-value-badge">
+            <span class="delivery-pulse-dot"></span>
+            <span>Integración Oficial POS API • 100% Automática</span>
+          </div>
+
+          <h3 class="delivery-col-title">
+            Conexión oficial en 3 pasos:
+          </h3>
+
+          <!-- 3 Pasos Claros -->
+          <div class="delivery-steps-list">
+            <div id="videoStepCard1" class="delivery-step-item active-step">
+              <div class="delivery-step-num">1</div>
+              <div class="delivery-step-content">
+                <h4>Activa en 1 Clic</h4>
+                <p>Enciende Rappi o DiDi desde tu panel sin configuraciones complejas.</p>
+              </div>
+            </div>
+
+            <div id="videoStepCard2" class="delivery-step-item">
+              <div class="delivery-step-num">2</div>
+              <div class="delivery-step-content">
+                <h4>Pega tu Store ID</h4>
+                <p>Ingresa la clave oficial provista en tu portal de Aliados.</p>
+              </div>
+            </div>
+
+            <div id="videoStepCard3" class="delivery-step-item">
+              <div class="delivery-step-num">3</div>
+              <div class="delivery-step-content">
+                <h4>Copia el Webhook</h4>
+                <p>Copia la URL única, pégala en tu app y recibe comandas en vivo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Puntos Clave de Alto Impacto -->
+          <div class="delivery-perks-grid">
+            <div class="delivery-perk-card">
+              <div class="perk-icon">⚡</div>
+              <div>
+                <strong>Cero Recaptura</strong>
+                <p>Ahorra 3h/día y elimina 100% de errores.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">🍳</div>
+              <div>
+                <strong>Cocina KDS</strong>
+                <p>Alerta auditiva y notas de preparación.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">🛵</div>
+              <div>
+                <strong>Repartidor en Vivo</strong>
+                <p>Nombre, vehículo, placas y código #176.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">📊</div>
+              <div>
+                <strong>Corte Cuadrado</strong>
+                <p>Ventas conciliadas con tu corte ciego.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs de Conversión -->
+          <div class="delivery-cta-group">
+            <a href="#planes" class="btn btn-primary btn-lg">
+              <span>Probar 15 Días Gratis</span>
+              <span>→</span>
+            </a>
+            <a href="#" class="btn btn-whatsapp btn-lg" data-whatsapp-plan="PRO">
+              <span>💬</span>
+              <span>Asesoría por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Reproductor Interactivo de Video Demostración -->
+        <div class="delivery-video-col">
+          <div class="delivery-video-frame">
+            <!-- Video Frame Header -->
+            <div class="video-header-bar">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="video-header-title">
+                <span>🎥 Demostración en Video: Conexión Real a Rappi & DiDi Food</span>
+              </div>
+              <div class="video-live-badge">
+                <span class="live-dot-red"></span>
+                <span>Simulación en Vivo</span>
+              </div>
+            </div>
+
+            <!-- Video Screen Viewport -->
+            <div id="deliveryVideoViewport" class="delivery-video-viewport">
+              <!-- Top bar inside video -->
+              <div class="video-screen-banner">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="font-size:0.76rem; font-weight:800; color:#0f172a;">🛵 Delivery:</span>
+                  <span id="videoRappiBadge" style="font-size:0.68rem; font-weight:700; padding:2px 6px; border-radius:8px; background:#dcfce7; color:#15803d; border:1px solid #86efac;">Rappi: 🟢 Conectado</span>
+                  <span id="videoDidiBadge" style="font-size:0.68rem; font-weight:700; padding:2px 6px; border-radius:8px; background:#dcfce7; color:#15803d; border:1px solid #86efac;">DiDi: 🟢 Conectado</span>
+                </div>
+                <button id="videoBtnSimulate" style="background:#ff441f; color:#ffffff; border:none; border-radius:5px; padding:4px 8px; font-size:0.7rem; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:4px;">
+                  <img src="assets/rappi-logo.png" style="width:13px; height:13px; border-radius:2px; object-fit:cover;" alt="" />
+                  <span>Simular Pedido Rappi</span>
+                </button>
+              </div>
+
+              <!-- Two Cards Grid inside Video -->
+              <div class="video-cards-grid">
+                <!-- Card Rappi -->
+                <div id="videoCardRappi" class="video-platform-card highlighted">
+                  <div>
+                    <div class="video-card-top">
+                      <div class="video-platform-logo-wrap">
+                        <img src="assets/rappi-logo.png" alt="Rappi" class="video-platform-logo" />
+                        <div>
+                          <div style="font-size:0.8rem; font-weight:800; color:#0f172a;">Rappi Partners</div>
+                          <div style="font-size:0.65rem; color:#64748b;">POS API Oficial</div>
+                        </div>
+                      </div>
+                      <span id="videoRappiSwitch" class="demo-toggle-switch on"></span>
+                    </div>
+
+                    <div class="video-field-group">
+                      <label class="video-field-label">Store ID de Rappi *</label>
+                      <input id="videoInputStoreId" type="text" class="video-field-input" value="RP-STORE-MX-0482" readonly />
+                    </div>
+
+                    <div style="display:none;">
+                      <input id="videoInputToken" type="password" value="••••••••••••••••••••••••" readonly />
+                    </div>
+
+                    <div>
+                      <label class="video-field-label">URL de Webhook (Pega en Rappi):</label>
+                      <div class="video-webhook-row">
+                        <input type="text" class="video-field-input" value="https://api.puntogo.app/webhooks/rappi" readonly style="flex:1;" />
+                        <button id="videoBtnCopy" class="video-btn-copy">Copiar</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:6px; font-size:0.65rem; color:#9a3412; background:#fef7ed; border:1px solid #fed7aa; border-radius:5px; padding:3px 6px;">
+                    🛵 Comanda y repartidor automáticos en KDS.
+                  </div>
+                </div>
+
+                <!-- Card DiDi Food -->
+                <div id="videoCardDidi" class="video-platform-card">
+                  <div>
+                    <div class="video-card-top">
+                      <div class="video-platform-logo-wrap">
+                        <img src="assets/didi-logo.png" alt="DiDi Food" class="video-platform-logo" />
+                        <div>
+                          <div style="font-size:0.8rem; font-weight:800; color:#0f172a;">DiDi Food</div>
+                          <div style="font-size:0.65rem; color:#64748b;">Open Platform</div>
+                        </div>
+                      </div>
+                      <span class="demo-toggle-switch on"></span>
+                    </div>
+
+                    <div class="video-field-group">
+                      <label class="video-field-label">Store ID de DiDi Food *</label>
+                      <input type="text" class="video-field-input" value="DIDI-SHOP-99214" readonly />
+                    </div>
+
+                    <div>
+                      <label class="video-field-label">URL de Webhook (Pega en DiDi):</label>
+                      <div class="video-webhook-row">
+                        <input type="text" class="video-field-input" value="https://api.puntogo.app/webhooks/didi" readonly style="flex:1;" />
+                        <button class="video-btn-copy">Copiar</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:6px; font-size:0.65rem; color:#c2410c; background:#fff7ed; border:1px solid #fed7aa; border-radius:5px; padding:3px 6px;">
+                    🛵 Envío directo a Cocina al confirmarse.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Live Toast inside Video -->
+              <div id="videoOrderToast" class="video-order-toast">
+                <div class="toast-header-row">
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span class="toast-tag-live">🛵 RAPPI EN VIVO</span>
+                    <h5 class="toast-title">¡Nuevo Pedido #RP-4924 Recibido!</h5>
+                  </div>
+                  <span style="font-size:0.8rem; font-weight:900; color:#15803d;">Total: $2,489.16</span>
+                </div>
+                <div class="toast-body-row">
+                  <span><strong>Cliente:</strong> Mariana Garza (Rappi Aliados)</span>
+                  <span><strong>Código de Entrega:</strong> #176</span>
+                </div>
+                <div class="toast-body-row">
+                  <span><strong>Repartidor:</strong> Juan Pérez (Moto Yamaha Azul, Placas: MOT-291)</span>
+                  <span class="toast-kds-badge">🍳 Enviado a Cocina KDS</span>
+                </div>
+              </div>
+
+              <!-- Virtual Cursor inside Video -->
+              <div id="videoVirtualCursor" class="demo-virtual-cursor" style="left:50%; top:50%;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <path d="M5.5 3.2L18.5 12L12.5 13.5L9.5 20.8L5.5 3.2Z" fill="#0f172a" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div id="videoVirtualPulse" class="demo-click-pulse"></div>
+            </div>
+
+            <!-- Video Player Controls Footer -->
+            <div class="video-controls-bar">
+              <div class="video-timeline-wrap">
+                <div id="videoProgressTrack" class="video-progress-track">
+                  <div id="videoProgressBar" class="video-progress-fill"></div>
+                </div>
+                <div class="video-steps-markers">
+                  <button class="video-step-marker active" data-step="1">1. Activar</button>
+                  <button class="video-step-marker" data-step="2">2. Credenciales</button>
+                  <button class="video-step-marker" data-step="3">3. Webhook</button>
+                  <button class="video-step-marker" data-step="4">4. ¡Pedido en Cocina!</button>
+                </div>
+              </div>
+
+              <div class="video-actions-row">
+                <div class="video-playback-buttons">
+                  <button id="btnPlayDeliveryVideo" class="btn-video-control" title="Reproducir / Pausar">
+                    <span id="playIcon">⏸</span>
+                    <span id="playLabel">Pausar</span>
+                  </button>
+                  <button id="btnRestartDeliveryVideo" class="btn-video-control secondary" title="Reiniciar Video">
+                    <span>🔄 Reiniciar</span>
+                  </button>
+                  <span id="videoTimeDisplay" class="video-time-text">0:00 / 0:20</span>
+                </div>
+                <div class="video-quality-tag">
+                  <span>60 FPS • Simulación Real</span>
+                </div>
+              </div>
+
+              <!-- Subtítulos / Narrador dinámico -->
+              <div class="video-narrator-box">
+                <span class="narrator-icon">🎙️</span>
+                <span id="videoNarratorText" class="narrator-text">Paso 1: Activando conexión oficial con Rappi Partners en un solo clic...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1298,6 +1736,7 @@
             <li class="unsupported">Clientes a crédito y cotizaciones comerciales</li>
             <li class="unsupported">Pantalla de Cocina (KDS en tiempo real)</li>
             <li class="unsupported">Traspasos entre almacenes y compras</li>
+            <li class="unsupported">Integración Delivery (Rappi & DiDi Food no disponible)</li>
           </ul>
 
           <a href="#" class="btn btn-secondary" data-whatsapp-plan="BASICO">
@@ -1324,6 +1763,7 @@
             <li class="check"><strong>Cotizaciones comerciales</strong> con vigencia y conversión a venta en 1 clic</li>
             <li class="check"><strong>Clientes & Crédito</strong> (hasta 25 clientes, límites de saldo y abonos)</li>
             <li class="check"><strong>Pantalla de Cocina KDS en vivo</strong> (SignalR en tiempo real con sonido)</li>
+            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food</strong> (hasta 50 pedidos/mes)</li>
             <li class="check"><strong>Hasta 100 productos</strong> con variantes, extras, modificadores y recetas</li>
             <li class="check"><strong>Facturación CFDI 4.0 SAT</strong> (10 facturas al mes incluidas)</li>
             <li class="check">Hasta 3 bodegas / sucursales y hasta 25 proveedores</li>
@@ -1353,6 +1793,7 @@
 
           <ul class="pricing-list">
             <li class="check"><strong>Catálogo de productos ILIMITADO</strong></li>
+            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food ILIMITADA</strong> (todas tus sucursales)</li>
             <li class="check"><strong>Facturación electrónica CFDI 4.0 SAT ILIMITADA</strong></li>
             <li class="check"><strong>Módulo de Compras & Proveedores ILIMITADO</strong> con costeo promedio</li>
             <li class="check"><strong>Multi-Bodega & Sucursales ILIMITADAS</strong></li>
@@ -1371,224 +1812,6 @@
           </a>
         </div>
 
-      </div>
-
-      <!-- Tabla Comparativa Detallada de Módulos y Límites -->
-      <div class="pricing-comparison-wrapper">
-        <div class="pricing-table-header">
-          <div>
-            <h3>Tabla Comparativa de Planes</h3>
-            <span style="font-size:0.85rem; color:var(--gray-500);">Filtra por área de interés o revisa todas las
-              funciones.</span>
-          </div>
-          <span class="badge badge-light" style="font-size:0.8rem; font-weight:700;">100% Modular</span>
-        </div>
-
-        <!-- Filtros Rápidos por Categoría -->
-        <div class="pricing-table-toolbar">
-          <div class="table-filter-pills">
-            <button class="table-filter-btn active" data-filter="all">⭐ Todos (18)</button>
-            <button class="table-filter-btn" data-filter="pos">🛒 Caja & POS</button>
-            <button class="table-filter-btn" data-filter="inv">📦 Inventario</button>
-            <button class="table-filter-btn" data-filter="com">💼 Facturación</button>
-            <button class="table-filter-btn" data-filter="bod">🏬 Sucursales</button>
-            <button class="table-filter-btn" data-filter="kds">🍳 Cocina & Personal</button>
-          </div>
-          <button id="toggleAllRowsBtn" class="btn-outline-table">Contraer todo</button>
-        </div>
-
-        <div class="pricing-table-scroll">
-          <table class="pricing-table">
-            <thead>
-              <tr>
-                <th class="col-feature">
-                  <span class="th-main-title">Módulo / Función</span>
-                  <span class="th-sub-title">18 herramientas integradas</span>
-                </th>
-                <th class="col-plan">
-                  <span class="th-plan-badge basic">Básico</span>
-                  <span class="th-plan-price"><span id="table-price-basico">$415</span> <small id="table-period-basico">MXN/mes</small></span>
-                  <span class="th-plan-note">1 Caja activa</span>
-                </th>
-                <th class="col-plan highlight">
-                  <span class="th-popular-pill">★ RECOMENDADO</span>
-                  <span class="th-plan-badge pro">Pro Negocio</span>
-                  <span class="th-plan-price"><span id="table-price-pro">$665</span> <small id="table-period-pro">MXN/mes</small></span>
-                  <span class="th-plan-note">Hasta 3 Cajas</span>
-                </th>
-                <th class="col-plan">
-                  <span class="th-plan-badge enterprise">Empresarial</span>
-                  <span class="th-plan-price"><span id="table-price-empresarial">$1,165</span> <small id="table-period-empresarial">MXN/mes</small></span>
-                  <span class="th-plan-note">Multi-sucursal</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Categoría: Ventas y Caja -->
-              <tr class="category-row" data-category="pos">
-                <td colspan="4">
-                  <div class="category-header-flex">
-                    <span class="category-title">🛒 Caja & Punto de Venta (POS)</span>
-                    <span class="category-count">4 funciones</span>
-                    <span class="category-chevron">▾</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="feature-row" data-category="pos">
-                <td>Cajas simultáneas</td>
-                <td class="col-plan">1 Caja</td>
-                <td class="col-plan highlight">Hasta 3 Cajas</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitadas</span></td>
-              </tr>
-              <tr class="feature-row" data-category="pos">
-                <td>Separación Preventa y Caja</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-              <tr class="feature-row" data-category="pos">
-                <td>Corte de caja ciego</td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-              <tr class="feature-row" data-category="pos">
-                <td>Tickets térmicos (58/80mm)</td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-
-              <!-- Categoría: Catálogo e Inventario -->
-              <tr class="category-row" data-category="inv">
-                <td colspan="4">
-                  <div class="category-header-flex">
-                    <span class="category-title">📦 Catálogo & Inventario</span>
-                    <span class="category-count">4 funciones</span>
-                    <span class="category-chevron">▾</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="feature-row" data-category="inv">
-                <td>Productos en catálogo</td>
-                <td class="col-plan"><span class="table-pill blue">Hasta 25</span></td>
-                <td class="col-plan highlight"><span class="table-pill green">Hasta 100</span></td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitados</span></td>
-              </tr>
-              <tr class="feature-row" data-category="inv">
-                <td>Variantes, extras y recetas</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-              <tr class="feature-row" data-category="inv">
-                <td>Kardex de movimientos</td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-              <tr class="feature-row" data-category="inv">
-                <td>Conteo ciego de inventario</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓ Multi-rol</span></td>
-              </tr>
-
-              <!-- Categoría: Facturación y Comercial -->
-              <tr class="category-row" data-category="com">
-                <td colspan="4">
-                  <div class="category-header-flex">
-                    <span class="category-title">💼 Comercial & Facturación</span>
-                    <span class="category-count">3 funciones</span>
-                    <span class="category-chevron">▾</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="feature-row" data-category="com">
-                <td>Facturación CFDI 4.0 SAT</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight">10 facturas/mes</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitada</span></td>
-              </tr>
-              <tr class="feature-row" data-category="com">
-                <td>Cotizaciones con PDF</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitadas</span></td>
-              </tr>
-              <tr class="feature-row" data-category="com">
-                <td>Clientes & Crédito</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight">Hasta 25 clientes</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitados</span></td>
-              </tr>
-
-              <!-- Categoría: Bodegas y Compras -->
-              <tr class="category-row" data-category="bod">
-                <td colspan="4">
-                  <div class="category-header-flex">
-                    <span class="category-title">🏬 Sucursales, Bodegas & Compras</span>
-                    <span class="category-count">3 funciones</span>
-                    <span class="category-chevron">▾</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="feature-row" data-category="bod">
-                <td>Sucursales o Bodegas</td>
-                <td class="col-plan">1 Almacén</td>
-                <td class="col-plan highlight">Hasta 3 Bodegas</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitadas</span></td>
-              </tr>
-              <tr class="feature-row" data-category="bod">
-                <td>Traspasos entre almacenes</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-cross">—</span></td>
-                <td class="col-plan"><span class="table-check">✓ Con acuse</span></td>
-              </tr>
-              <tr class="feature-row" data-category="bod">
-                <td>Compras a proveedores</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight">Hasta 25 prov.</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitado</span></td>
-              </tr>
-
-              <!-- Categoría: Cocina KDS y RRHH -->
-              <tr class="category-row" data-category="kds">
-                <td colspan="4">
-                  <div class="category-header-flex">
-                    <span class="category-title">🍳 Cocina KDS & Personal</span>
-                    <span class="category-count">4 funciones</span>
-                    <span class="category-chevron">▾</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="feature-row" data-category="kds">
-                <td>Pantalla de Cocina KDS en vivo</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓ 1 Pantalla</span></td>
-                <td class="col-plan"><span class="table-pill purple">Multi-pantalla</span></td>
-              </tr>
-              <tr class="feature-row" data-category="kds">
-                <td>Roles de usuario</td>
-                <td class="col-plan">2 (Admin / Caja)</td>
-                <td class="col-plan highlight">Hasta 5 Roles</td>
-                <td class="col-plan"><span class="table-pill purple">Ilimitados</span></td>
-              </tr>
-              <tr class="feature-row" data-category="kds">
-                <td>Registro de Asistencias</td>
-                <td class="col-plan"><span class="table-cross">—</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-              </tr>
-              <tr class="feature-row" data-category="kds">
-                <td>Respaldo de licencia en la nube</td>
-                <td class="col-plan"><span class="table-check">✓</span></td>
-                <td class="col-plan highlight"><span class="table-check">✓</span></td>
-                <td class="col-plan"><span class="table-check">✓ Historial</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
   </section>
@@ -1673,6 +1896,16 @@
             <p>PuntoGo fue diseñado pensando en México y Latinoamérica. El sistema trabaja sobre tu Red Local (LAN).
               Aunque el módem pierda la señal de internet hacia la calle, tus cajas siguen cobrando, registrando ventas,
               imprimiendo tickets y sincronizando información sin interrupciones.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué tan fácil es conectar Rappi y DiDi Food con PuntoGo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Es sumamente rápido y sencillo; no requieres de un programador ni de conocimientos técnicos. Solo activas la plataforma desde tu módulo de Delivery, pegas tu Store ID y Token de tu portal de aliados, y copias la URL de Webhook generada en 1 clic para pegarla en tu panel de Rappi o DiDi. A partir de ese momento, cada orden que entre sonará de inmediato en tu pantalla de Cocina KDS con los datos del repartidor asignado, descontando ingredientes y cuadrando tus ventas automáticamente.</p>
           </div>
         </div>
 
