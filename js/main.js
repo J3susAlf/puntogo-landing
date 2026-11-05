@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initMockupTabs();
   initGirosAndModules();
   initBillingToggle();
-  initCalculator();
   initFaqAccordion();
   initWhatsAppLinks();
   initMobileMenu();
@@ -848,57 +847,6 @@ function initBillingToggle() {
   updatePrices(toggle.checked);
 }
 
-/* ----------------------------------------------------
-   3. Interactive ROI / Savings Calculator
-   ---------------------------------------------------- */
-function initCalculator() {
-  const ordersSlider = document.getElementById("ordersRange");
-  const ticketSlider = document.getElementById("ticketRange");
-  const ordersVal = document.getElementById("ordersVal");
-  const ticketVal = document.getElementById("ticketVal");
-
-  const moneySavedEl = document.getElementById("calcMoneySaved");
-  const hoursSavedEl = document.getElementById("calcHoursSaved");
-  const monthlySalesEl = document.getElementById("calcMonthlySales");
-  const formulaHintEl = document.getElementById("calcFormulaHint");
-
-  if (!ordersSlider || !ticketSlider) return;
-
-  function calculate() {
-    const ordersPerDay = parseInt(ordersSlider.value, 10);
-    const avgTicket = parseInt(ticketSlider.value, 10);
-
-    ordersVal.textContent = `${ordersPerDay.toLocaleString("es-MX")} pedidos/día`;
-    ticketVal.textContent = `$${avgTicket.toLocaleString("es-MX")} MXN`;
-
-    // Formulas:
-    // 1. Ventas estimadas del mes = pedidos diarios * gasto promedio por cliente * 30 días
-    const monthlySales = ordersPerDay * avgTicket * 30;
-
-    // 2. Ahorro estimado por evitar fugas / errores de cobro / robo hormiga (2.5% estándar)
-    const leakagePrevented = Math.round(monthlySales * 0.025);
-
-    // 3. Horas ahorradas al mes: cortes automáticos y cuadres rápidos
-    const hoursSaved = Math.round(ordersPerDay * 0.015 * 30 + 35);
-
-    if (monthlySalesEl) {
-      monthlySalesEl.textContent = `$${monthlySales.toLocaleString("es-MX")} MXN/mes`;
-    }
-    if (formulaHintEl) {
-      formulaHintEl.textContent = `Calculado como: ${ordersPerDay.toLocaleString("es-MX")} clientes/día × $${avgTicket.toLocaleString("es-MX")} MXN promedio × 30 días`;
-    }
-    if (moneySavedEl) {
-      moneySavedEl.textContent = `$${leakagePrevented.toLocaleString("es-MX")} MXN`;
-    }
-    if (hoursSavedEl) {
-      hoursSavedEl.textContent = `${hoursSaved} horas`;
-    }
-  }
-
-  ordersSlider.addEventListener("input", calculate);
-  ticketSlider.addEventListener("input", calculate);
-  calculate();
-}
 
 /* ----------------------------------------------------
    4. FAQ Accordion
@@ -961,7 +909,8 @@ function initMobileMenu() {
 
   if (!toggle || !navLinks) return;
 
-  toggle.addEventListener("click", () => {
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle("mobile-open");
   });
 
@@ -970,6 +919,13 @@ function initMobileMenu() {
     link.addEventListener("click", () => {
       navLinks.classList.remove("mobile-open");
     });
+  });
+
+  // Close when clicking outside menu
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("mobile-open") && !navLinks.contains(e.target) && !toggle.contains(e.target)) {
+      navLinks.classList.remove("mobile-open");
+    }
   });
 }
 
