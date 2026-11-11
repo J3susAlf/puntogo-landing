@@ -14,12 +14,12 @@
   <!-- Open Graph / Redes Sociales -->
   <meta property="og:title" content="PuntoGo | El Punto de Venta y ERP Modular que Crece con tu Negocio">
   <meta property="og:description"
-    content="Activa solo lo que tu negocio necesita: Caja, Cotizaciones, Clientes a Crédito, Compras, Inventario, Multi-Bodegas, Cocina en Vivo y Personal.">
+    content="Activa solo lo que tu negocio necesita: Caja, Cotizaciones, Clientes a Crédito, Tienda Online, Promociones WhatsApp, Inventario, Cocina KDS y Delivery.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo-full-1920.png">
 
   <!-- Favicon -->
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
 
   <!-- Google Fonts: Nunito Sans Variable -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,14 +49,15 @@
         <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
         <li><a href="#como-funciona" class="nav-link">Funciones</a></li>
         <li><a href="#delivery" class="nav-link delivery-nav-link">🛵 Delivery</a></li>
+        <li><a href="#promociones" class="nav-link" style="color: #10b981; font-weight: 800;">💬 Promociones</a></li>
         <li><a href="#planes" class="nav-link">Planes</a></li>
         <li><a href="#faq" class="nav-link">Preguntas</a></li>
-        <li class="nav-mobile-cta"><a href="#planes" class="btn btn-primary"
+        <li class="nav-mobile-cta"><a href="#planes" class="btn btn-primary" data-open-trial-modal="true"
             style="width: 100%; text-align: center;">Prueba 15 Días Gratis</a></li>
       </ul>
 
       <div class="nav-cta-group">
-        <a href="#planes" class="btn btn-primary btn-sm">Prueba 15 Días Gratis</a>
+        <a href="#planes" class="btn btn-primary btn-sm" data-open-trial-modal="true">Prueba 15 Días Gratis</a>
         <button class="nav-mobile-toggle" aria-label="Abrir menú">☰</button>
       </div>
     </div>
@@ -77,13 +78,12 @@
         </h1>
 
         <p class="hero-subtitle">
-          Diseñado para micro y pequeñas empresas: activa las funciones que ocupas y apaga las que no. Desde cobros
-          rápidos en mostrador, cotizaciones y clientes a crédito, hasta compras, multi-bodegas, promociones por WhatsApp, cocina KDS en vivo y
-          personal.
+          Software POS y ERP 100% modular. Activa solo lo que necesitas: cobro rápido, cotizaciones, crédito,
+          inventario, multi-bodega, cocina KDS y delivery.
         </p>
 
         <div class="hero-ctas">
-          <a href="#planes" class="btn btn-primary">
+          <a href="#planes" class="btn btn-primary" data-open-trial-modal="true">
             <span>Probar 15 Días Gratis</span>
             <span>→</span>
           </a>
@@ -137,6 +137,8 @@
             <button class="mockup-tab-pill" data-mockup-target="mockup-modulos">⚙️ Módulos</button>
             <button class="mockup-tab-pill" data-mockup-target="mockup-delivery"
               style="border-left: 2px solid #ff5722; color: #ff7849;">🛵 Delivery</button>
+            <button class="mockup-tab-pill" data-mockup-target="mockup-tienda"
+              style="border-left: 2px solid #10b981; color: #059669; font-weight: 800;">📱 Tienda Online</button>
           </div>
 
           <div class="mockup-body">
@@ -787,6 +789,138 @@
               <div id="demo-pulse-deliv" class="demo-click-pulse"></div>
             </div>
 
+            <!-- View 6: Tienda Online & Pedido desde Celular a Cocina KDS -->
+            <div id="mockup-tienda" class="mockup-view" style="overflow: hidden; max-width: 100%;">
+              <div class="demo-sub-header" style="padding: 6px 10px; margin-bottom: 8px;">
+                <div class="demo-sub-left">
+                  <span class="demo-store-name" style="font-size:0.75rem;">PuntoDemo Tienda</span>
+                  <span class="demo-status-pill green" style="font-size:0.65rem; padding:1px 6px;">🟢 Menú Web
+                    Activo</span>
+                  <span class="demo-status-pill blue"
+                    style="background:#eff6ff; color:#1d4ed8; border:1px solid #bfdbfe; font-size:0.65rem; padding:1px 6px;">📱
+                    QR & Pedidos</span>
+                </div>
+                <div class="demo-sub-right">
+                  <span class="demo-user-tag"
+                    style="background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0; font-size:0.66rem; padding:2px 6px;">●
+                    Sincronizado a KDS</span>
+                </div>
+              </div>
+
+              <!-- Main Grid: Phone on left, Live sync middle, Terminal KDS on right -->
+              <div class="mockup-tienda-grid">
+
+                <!-- 1. Celular del Cliente -->
+                <div class="phone-mockup-frame">
+                  <div class="phone-screen">
+                    <div class="phone-status-bar">
+                      <span>📶 5G</span>
+                      <span>12:45</span>
+                      <span>🔋 98%</span>
+                    </div>
+
+                    <div class="phone-store-header">
+                      <span class="phone-store-name">🌮 Don Go Tacos & Grill</span>
+                      <span class="phone-store-status">● Abierto para Pedidos</span>
+                    </div>
+
+                    <div class="phone-categories-bar">
+                      <span class="phone-cat-pill active">🔥 Populares</span>
+                      <span class="phone-cat-pill">🌮 Tacos</span>
+                      <span class="phone-cat-pill">🥤 Bebidas</span>
+                    </div>
+
+                    <div class="phone-product-card">
+                      <div class="phone-prod-row">
+                        <div>
+                          <div class="phone-prod-title">Tacos Pastor c/Queso</div>
+                          <div class="phone-prod-desc">3 pzas con piña, cebolla y guacamole</div>
+                        </div>
+                        <span class="phone-prod-price">$115.00</span>
+                      </div>
+                      <button id="demo-tienda-btn-add" class="phone-btn-add">+ Agregar al Carrito</button>
+                    </div>
+
+                    <div class="phone-product-card secondary">
+                      <div class="phone-prod-row">
+                        <div>
+                          <div class="phone-prod-title">Agua de Horchata 1L</div>
+                          <div class="phone-prod-desc">Artesanal con canela y hielo</div>
+                        </div>
+                        <span class="phone-prod-price">$45.00</span>
+                      </div>
+                      <button class="phone-btn-add muted">+ Agregar</button>
+                    </div>
+
+                    <div class="phone-cart-footer">
+                      <div class="phone-cart-summary">
+                        <span>Carrito: <strong id="demo-tienda-cart-qty">0 items</strong></span>
+                        <span id="demo-tienda-cart-total" style="color:#059669;">$0.00</span>
+                      </div>
+                      <button id="demo-tienda-btn-send" class="phone-btn-send">
+                        <span>💬</span>
+                        <span id="demo-tienda-btn-text">Pedir a Cocina</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Sincronizador Central -->
+                <div class="sync-connector-col">
+                  <div class="sync-pulse-arrow">➔</div>
+                  <span class="sync-label">Sincronización<br>en 1 segundo</span>
+                </div>
+
+                <!-- 3. Terminal PuntoGo y Cocina KDS -->
+                <div>
+                  <div id="demo-tienda-terminal-ticket" class="terminal-ticket-card">
+                    <div class="ticket-header-row">
+                      <div class="ticket-title-tag">
+                        <span>🔔</span>
+                        <strong>Pedido Web #WEB-104</strong>
+                      </div>
+                      <span class="ticket-kds-badge">🍳 Cocina KDS</span>
+                    </div>
+
+                    <div style="font-size:0.72rem; color:#475569; margin-bottom:4px;">
+                      <strong>Cliente:</strong> Sofía Mendoza • <span style="color:#0284c7;">📱 Vía Menú Digital</span>
+                    </div>
+
+                    <div
+                      style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px; font-size:0.7rem; margin-bottom:6px;">
+                      <div style="display:flex; justify-content:space-between; font-weight:800; color:#0f172a;">
+                        <span>1x Tacos Pastor c/Queso</span>
+                        <span>$115.00</span>
+                      </div>
+                      <div style="font-size:0.62rem; color:#64748b; margin-top:2px;">
+                        • Notas: Salsa verde aparte, sin cebolla
+                      </div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.74rem;">
+                      <span style="color:#64748b;">Estado: <strong id="demo-tienda-status-label"
+                          style="color:#16a34a;">● En Preparación</strong></span>
+                      <strong style="color:#0f172a; font-size:0.84rem;">Total: $115.00</strong>
+                    </div>
+                  </div>
+
+                  <div id="demo-tienda-toast" class="demo-success-toast" style="margin-top:8px;">
+                    ✓ Comanda Web #WEB-104 en Pantalla de Cocina KDS sin comisiones
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Virtual Cursor -->
+              <div id="demo-cursor-tienda" class="demo-virtual-cursor">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <path d="M5.5 3.2L18.5 12L12.5 13.5L9.5 20.8L5.5 3.2Z" fill="#0f172a" stroke="#ffffff"
+                    stroke-width="2" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div id="demo-pulse-tienda" class="demo-click-pulse"></div>
+            </div>
+
           </div>
 
           <!-- Playback Status Bar -->
@@ -810,8 +944,7 @@
         <div class="section-tag">Flexibilidad Total</div>
         <h2 class="section-title">Elige tu Giro o Personaliza tus Módulos en 1 Clic</h2>
         <p class="section-subtitle">
-          No pagues por funciones que no ocupas ni te compliques con pantallas innecesarias. PuntoGo te permite encender
-          o apagar cualquier módulo según las necesidades y el crecimiento de tu negocio.
+          Enciende o apaga módulos con 1 clic. Paga solo por lo que usas y adapta el sistema al ritmo de tu negocio.
         </p>
       </div>
 
@@ -825,7 +958,7 @@
               <h3 class="giro-card-title">Punto de Venta Básico</h3>
             </div>
             <p class="giro-card-desc">
-              <strong>Cobro rápido e inventario.</strong> Ideal para abarrotes, papelerías, ferreterías y boutiques.
+              <strong>Cobro e inventario.</strong> Para abarrotes, papelerías y ferreterías.
             </p>
           </div>
           <div class="giro-card-badge">Seleccionar</div>
@@ -839,7 +972,7 @@
               <h3 class="giro-card-title">Restaurante & Alimentos</h3>
             </div>
             <p class="giro-card-desc">
-              <strong>Cocina KDS en vivo y recetas.</strong> Ideal para cafeterías, taquerías, pizzerías y snacks.
+              <strong>Cocina KDS y recetas.</strong> Para cafeterías, taquerías y pizzerías.
             </p>
           </div>
           <div class="giro-card-badge">Seleccionar</div>
@@ -853,7 +986,7 @@
               <h3 class="giro-card-title">Comercial & Servicios</h3>
             </div>
             <p class="giro-card-desc">
-              <strong>Cotizaciones, crédito y compras.</strong> Para mayoristas, distribuidores y talleres.
+              <strong>Cotizaciones, crédito y compras.</strong> Para mayoristas y talleres.
             </p>
           </div>
           <div class="giro-card-badge">Seleccionar</div>
@@ -867,7 +1000,7 @@
               <h3 class="giro-card-title">Empresa Completa</h3>
             </div>
             <p class="giro-card-desc">
-              <strong>Multi-bodega, traspasos y RRHH.</strong> Control integral de operaciones sin límites.
+              <strong>Multi-bodega, traspasos y RRHH.</strong> Control integral sin límites.
             </p>
           </div>
           <div class="giro-card-badge">✓ Activo</div>
@@ -1057,49 +1190,49 @@
   <section id="beneficios" class="problems-section">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">Control Integral y Rentabilidad</div>
-        <h2 class="section-title">¿La falta de un sistema integrado frena tu negocio?</h2>
-        <p class="section-subtitle">Evita fugas de dinero, retrasos y desorden operativo con una gestión unificada.</p>
+        <div class="section-tag">Control y Rentabilidad</div>
+        <h2 class="section-title">¿La falta de un sistema frena tu negocio?</h2>
+        <p class="section-subtitle">Elimina fugas de dinero, retrasos y descontrol con una gestión unificada.</p>
       </div>
 
       <div class="problems-grid">
         <div class="problem-card">
           <span class="problem-icon">💸</span>
           <h3 class="problem-title">Fugas de Dinero</h3>
-          <p>Cobros erróneos, robo hormiga y falta de claridad en las ganancias reales de caja.</p>
+          <p>Cobros erróneos, robo hormiga y descuadres de caja al cierre.</p>
           <div class="solution-tag">
             <span>✓</span>
-            <div><strong>Corte y Auditoría:</strong> Control blindado de cada peso al instante.</div>
+            <div><strong>Corte y Auditoría:</strong> Control estricto de cada peso.</div>
           </div>
         </div>
 
         <div class="problem-card">
           <span class="problem-icon">📋</span>
           <h3 class="problem-title">Procesos Manuales</h3>
-          <p>Notas en papel y pedidos dispersos que causan demoras, olvidos y errores al atender.</p>
+          <p>Notas en papel y pedidos dispersos que causan demoras y olvidos.</p>
           <div class="solution-tag">
             <span>✓</span>
-            <div><strong>Flujos en 1 Clic:</strong> Ventas, cobros y pedidos sin errores humanos.</div>
+            <div><strong>Flujos en 1 Clic:</strong> Cobros y pedidos sin errores humanos.</div>
           </div>
         </div>
 
         <div class="problem-card">
           <span class="problem-icon">📦</span>
           <h3 class="problem-title">Descontrol de Stock</h3>
-          <p>Mermas invisibles, compras a ciegas y pérdidas de ventas por desabasto no previsto.</p>
+          <p>Mermas invisibles, compras a ciegas y desabasto no previsto.</p>
           <div class="solution-tag">
             <span>✓</span>
-            <div><strong>Kardex Automático:</strong> Existencias y alertas preventivas en tiempo real.</div>
+            <div><strong>Kardex Automático:</strong> Stock en vivo y alertas preventivas.</div>
           </div>
         </div>
 
         <div class="problem-card">
           <span class="problem-icon">🔄</span>
           <h3 class="problem-title">Áreas Desconectadas</h3>
-          <p>Caja, cocina, almacén o sucursales operando sin comunicación ni sincronización.</p>
+          <p>Caja, cocina y almacenes operando sin comunicación.</p>
           <div class="solution-tag">
             <span>✓</span>
-            <div><strong>Todo Integrado:</strong> Coordina toda tu empresa desde una sola pantalla.</div>
+            <div><strong>Todo Integrado:</strong> Control total desde una sola pantalla.</div>
           </div>
         </div>
       </div>
@@ -1112,11 +1245,10 @@
       <div class="section-header">
         <div class="section-tag">Diseñado para la vida real</div>
         <h2 class="section-title">Todo lo que tu empresa necesita, en una sola plataforma</h2>
-        <p class="section-subtitle">Tan intuitivo y rápido que tu equipo aprenderá a utilizarlo en menos de 10 minutos.
-        </p>
+        <p class="section-subtitle">Intuitivo y rápido: tu equipo aprenderá a usarlo en menos de 10 minutos.</p>
       </div>
 
-      <!-- Feature Tabs Navigation (7 Módulos Conciso en 1 Línea) -->
+      <!-- Feature Tabs Navigation (8 Módulos Conciso en 1 Línea) -->
       <div class="features-tabs-nav">
         <button class="tab-btn active" data-target="tab-caja">🛒 Caja & Corte</button>
         <button class="tab-btn" data-target="tab-cotiza">💼 Cotizaciones</button>
@@ -1126,6 +1258,8 @@
         <button class="tab-btn" data-target="tab-personal">👔 Personal</button>
         <button class="tab-btn" data-target="tab-delivery"
           style="border-color:#fed7aa; color:#ea580c; font-weight:800;">🛵 Delivery</button>
+        <button class="tab-btn" data-target="tab-tienda"
+          style="border-color:#bbf7d0; color:#16a34a; font-weight:800;">📱 Tienda Online</button>
       </div>
 
       <!-- Tab 1: Caja & Corte Ciego -->
@@ -1206,14 +1340,14 @@
           <h3>Control de stock, compras y recetas</h3>
           <p>Auditorías ágiles por categoría y actualización automática de costos.</p>
           <ul class="feature-bullets">
-            <li><span class="check">✓</span> <strong>Conteo por categorías:</strong> Audita por pasillos sin frenar el
-              negocio.</li>
+            <li><span class="check">✓</span> <strong>Conteo por categorías:</strong> Audita por pasillos sin frenar la
+              venta.</li>
             <li><span class="check">✓</span> <strong>Kardex automático:</strong> Rastro exacto de entradas, salidas y
               mermas.</li>
             <li><span class="check">✓</span> <strong>Órdenes de compra:</strong> Recepción y costeo automático de
               insumos.</li>
-            <li><span class="check">✓</span> <strong>Recetas por porción:</strong> Descuento de ingredientes por gramo.
-            </li>
+            <li><span class="check">✓</span> <strong>Recetas por porción:</strong> Descuento de ingredientes por
+              gramaje.</li>
             <li><span class="check">✓</span> <strong>Alertas de stock bajo:</strong> Notificación antes de que se agote.
             </li>
           </ul>
@@ -1321,8 +1455,8 @@
               y Admin.</li>
             <li><span class="check">✓</span> <strong>Permisos blindados:</strong> Define quién cancela ventas o da
               descuentos.</li>
-            <li><span class="check">✓</span> <strong>Pase de lista:</strong> Registro puntual de entradas y salidas.
-            </li>
+            <li><span class="check">✓</span> <strong>Pase de lista:</strong> Registro puntual de entradas y salidas por
+              PIN.</li>
             <li><span class="check">✓</span> <strong>Expedientes:</strong> Contacto, turnos y documentación en un solo
               lugar.</li>
           </ul>
@@ -1350,14 +1484,14 @@
           <h3>Recibe pedidos de Rappi y DiDi directo a Cocina</h3>
           <p>Conexión automática en tiempo real: cero recaptura manual y cero pedidos traspapelados.</p>
           <ul class="feature-bullets">
-            <li><span class="check">✓</span> <strong>Comanda instantánea:</strong> Suena en pantalla KDS de Cocina en
-              cuanto el cliente confirma el pedido.</li>
-            <li><span class="check">✓</span> <strong>Datos del repartidor:</strong> Nombre, vehículo, placas y código de
-              entrega visibles al instante.</li>
-            <li><span class="check">✓</span> <strong>Descuento de stock en vivo:</strong> Las recetas e insumos se
-              descuentan de tu inventario sin retrasos.</li>
-            <li><span class="check">✓</span> <strong>Corte de caja unificado:</strong> Concilia las ventas de delivery
-              junto a tus ventas de mostrador.</li>
+            <li><span class="check">✓</span> <strong>Comanda instantánea:</strong> Suena en pantalla KDS en cuanto el
+              cliente confirma.</li>
+            <li><span class="check">✓</span> <strong>Datos del repartidor:</strong> Nombre, vehículo y código de entrega
+              visibles.</li>
+            <li><span class="check">✓</span> <strong>Descuento de stock en vivo:</strong> Recetas e insumos descontados
+              sin retrasos.</li>
+            <li><span class="check">✓</span> <strong>Corte unificado:</strong> Concilia ventas de delivery junto a las
+              de mostrador.</li>
           </ul>
         </div>
         <div class="feature-graphic-box">
@@ -1376,6 +1510,45 @@
           <div
             style="background: rgba(16,185,129,0.15); border: 1px solid #10b981; padding: 8px 10px; border-radius: 6px; font-size:0.78rem; font-weight:700;">
             ✓ Comanda impresa con código de entrega y ticket de salida
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 8: Tienda en Línea & Menú QR -->
+      <div id="tab-tienda" class="feature-tab-content">
+        <div>
+          <span class="badge badge-light"
+            style="margin-bottom: 12px; background:#f0fdf4; color:#15803d; border:1px solid #bbf7d0;">Ventas Digitales
+            sin Comisiones</span>
+          <h3>Tus clientes piden desde su celular y la comanda cae a cocina</h3>
+          <p>Comparte tu enlace web o coloca códigos QR en tus mesas para recibir pedidos directos.</p>
+          <ul class="feature-bullets">
+            <li><span class="check">✓</span> <strong>Menú digital responsivo:</strong> Funciona en cualquier celular sin
+              descargar aplicaciones.</li>
+            <li><span class="check">✓</span> <strong>Comanda directa a KDS:</strong> Suena en pantalla de cocina en
+              tiempo real sin pasar por caja.</li>
+            <li><span class="check">✓</span> <strong>Pedidos a WhatsApp:</strong> Envía el resumen del pedido y
+              dirección al chat de tu negocio.</li>
+            <li><span class="check">✓</span> <strong>Cero comisiones:</strong> Conserva el 100% de tus ventas sin
+              porcentajes abusivos de apps.</li>
+          </ul>
+        </div>
+        <div class="feature-graphic-box">
+          <div style="font-size: 0.85rem; color: #10b981; font-weight: 700; margin-bottom: 10px;">📱 Pedido Web en
+            Tiempo Real</div>
+          <div
+            style="background: rgba(255,255,255,0.08); padding: 10px 12px; border-radius: 8px; border-left: 4px solid #10b981; margin-bottom: 8px;">
+            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.82rem;">
+              <span>Pedido #WEB-104 (Sofía M.)</span>
+              <span style="color:#10b981;">🟢 Entrando a KDS</span>
+            </div>
+            <div style="font-size:0.78rem; margin-top:3px; color:#cbd5e1;">1x Tacos Pastor c/Queso • 1x Refresco</div>
+            <div style="font-size:0.72rem; margin-top:2px; color:#94a3b8;">Entrega: Para Llevar • Confirmado por Menú
+              Web</div>
+          </div>
+          <div
+            style="background: rgba(16,185,129,0.15); border: 1px solid #10b981; padding: 8px 10px; border-radius: 6px; font-size:0.78rem; font-weight:700;">
+            ✓ Total: $145.00 MXN • Sin comisiones de intermediarios
           </div>
         </div>
       </div>
@@ -1661,6 +1834,274 @@
     </div>
   </section>
 
+  <!-- ==================== SECCIÓN DESTACADA: PROMOCIONES Y FIDELIZACIÓN ==================== -->
+  <section id="promociones" class="promo-showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag promo-tag">
+          <span>💬</span>
+          <span>Fidelización y Recompra Inmediata</span>
+        </div>
+        <h2 class="section-title">
+          Promociones por WhatsApp y Correo <span class="gradient-text-promo">en 1 Clic</span>
+        </h2>
+        <p class="section-subtitle">
+          Envía campañas masivas con ofertas, cupones o el menú del día a tu cartera de clientes sin pagar herramientas
+          externas.
+        </p>
+      </div>
+
+      <div class="delivery-showcase-grid">
+        <!-- Columna de Información: Los 3 Pasos y Beneficios (Aparece a la derecha en Desktop) -->
+        <div class="delivery-info-col">
+          <div class="delivery-value-badge promo-badge-light">
+            <span class="delivery-pulse-dot" style="background:#10b981;"></span>
+            <span>Campañas Masivas Integradas • 100% Automatizadas</span>
+          </div>
+
+          <h3 class="delivery-col-title">
+            Lanza tu promoción en 3 pasos:
+          </h3>
+
+          <div class="delivery-steps-list">
+            <div id="promoStepCard1" class="delivery-step-item active-step">
+              <div class="delivery-step-num" style="background:#10b981;">1</div>
+              <div class="delivery-step-content">
+                <h4>Filtra tu Audiencia</h4>
+                <p>Clientes frecuentes, con saldo o toda tu cartera en 1 clic.</p>
+              </div>
+            </div>
+
+            <div id="promoStepCard2" class="delivery-step-item">
+              <div class="delivery-step-num" style="background:#0ea5e9;">2</div>
+              <div class="delivery-step-content">
+                <h4>Elige la Plantilla</h4>
+                <p>Ofertas 2x1, Cupones del 15% OFF o Menú del Día prearmados.</p>
+              </div>
+            </div>
+
+            <div id="promoStepCard3" class="delivery-step-item">
+              <div class="delivery-step-num" style="background:#8b5cf6;">3</div>
+              <div class="delivery-step-content">
+                <h4>Envía en 1 Clic</h4>
+                <p>Envío instantáneo por WhatsApp y Correo a todos tus clientes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="delivery-perks-grid">
+            <div class="delivery-perk-card">
+              <div class="perk-icon">💬</div>
+              <div>
+                <strong>WhatsApp Directo</strong>
+                <p>Mensajes personalizados con nombre del cliente.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">🎯</div>
+              <div>
+                <strong>Segmentación Fina</strong>
+                <p>Filtra por consumo o clientes inactivos.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">📧</div>
+              <div>
+                <strong>Correo Masivo</strong>
+                <p>Boletines gráficos con tu logotipo y promos.</p>
+              </div>
+            </div>
+            <div class="delivery-perk-card">
+              <div class="perk-icon">📈</div>
+              <div>
+                <strong>Recompra Rápida</strong>
+                <p>Llena tu negocio en días lentos fácilmente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Video Demostración Interactivo -->
+        <div class="delivery-video-col">
+          <div class="promo-video-frame">
+            <!-- Video Header -->
+            <div class="video-header-bar">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="video-header-title">
+                <span>🎥 Demostración en Video: Campaña de Promoción por WhatsApp</span>
+              </div>
+              <div class="video-live-badge"
+                style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid #10b981;">
+                <span class="live-dot-red" style="background:#10b981;"></span>
+                <span>Simulación en Vivo</span>
+              </div>
+            </div>
+
+            <!-- Video Viewport -->
+            <div id="promoVideoViewport" class="delivery-video-viewport">
+              <div class="video-screen-banner" style="background:#081d22; border-color:#134e4a;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span style="font-size:0.76rem; font-weight:800; color:#ffffff;">📢 Campaña:</span>
+                  <span id="promoBadgeAudience"
+                    style="font-size:0.68rem; font-weight:700; padding:2px 6px; border-radius:8px; background:#dcfce7; color:#15803d; border:1px solid #86efac;">
+                    👥 148 Clientes Frecuentes
+                  </span>
+                  <span id="promoBadgeChannel"
+                    style="font-size:0.68rem; font-weight:700; padding:2px 6px; border-radius:8px; background:#dbeafe; color:#1d4ed8; border:1px solid #93c5fd;">
+                    🟢 WhatsApp + ✉️ Email
+                  </span>
+                </div>
+                <button id="promoBtnSimulate"
+                  style="background:#10b981; color:#ffffff; border:none; border-radius:5px; padding:4px 8px; font-size:0.7rem; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:4px;">
+                  <span>⚡</span>
+                  <span>Simular Envío</span>
+                </button>
+              </div>
+
+              <!-- Two Cards Grid inside Video -->
+              <div class="video-cards-grid">
+                <!-- Card 1: Panel de Control de Promociones en PuntoGo -->
+                <div id="promoCardAdmin" class="video-platform-card highlighted" style="border-color:#10b981;">
+                  <div>
+                    <div class="video-card-top">
+                      <div class="video-platform-logo-wrap">
+                        <span style="font-size:1.4rem;">🎯</span>
+                        <div>
+                          <div style="font-size:0.8rem; font-weight:800; color:#0f172a;">Configurador de Campaña</div>
+                          <div style="font-size:0.65rem; color:#64748b;">Módulo de Fidelización</div>
+                        </div>
+                      </div>
+                      <span id="promoSwitchActive" class="demo-toggle-switch on"></span>
+                    </div>
+
+                    <div class="video-field-group">
+                      <label class="video-field-label">Audiencia Destino:</label>
+                      <input id="promoInputSegment" type="text" class="video-field-input"
+                        value="Clientes Frecuentes (148)" readonly />
+                    </div>
+
+                    <div class="video-field-group">
+                      <label class="video-field-label">Plantilla Seleccionada:</label>
+                      <input id="promoInputTemplate" type="text" class="video-field-input"
+                        value="🎉 15% OFF Fin de Semana" readonly />
+                    </div>
+
+                    <div>
+                      <button id="promoBtnSendAction" class="btn btn-primary btn-sm"
+                        style="width:100%; background:#10b981; border:none; padding:6px; font-size:0.72rem; font-weight:800; cursor:pointer; margin-top:4px;">
+                        🚀 Enviar a 148 Clientes por WhatsApp
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: Celular del Cliente (Recepción en Vivo de WhatsApp) -->
+                <div id="promoCardPhone" class="video-platform-card" style="background:#efeae2; border-color:#cbd5e1;">
+                  <div style="width:100%;">
+                    <div
+                      style="background:#075e54; color:#ffffff; border-radius:6px; padding:6px 8px; margin-bottom:8px; display:flex; align-items:center; justify-content:space-between;">
+                      <div style="display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:0.85rem;">💬</span>
+                        <div>
+                          <div style="font-size:0.72rem; font-weight:800;">Don Go Oficial</div>
+                          <div style="font-size:0.58rem; color:#a7f3d0;">● En línea</div>
+                        </div>
+                      </div>
+                      <span style="font-size:0.6rem; background:#128c7e; padding:2px 5px; border-radius:4px;">Verificado
+                        ✓</span>
+                    </div>
+
+                    <div id="promoChatBubble" class="whatsapp-chat-bubble"
+                      style="opacity:0.3; transition:all 0.4s ease;">
+                      <div style="font-weight:800; margin-bottom:3px; color:#075e54;">🎉 ¡Hola Mariana!</div>
+                      <div>Queremos consentirte: tienes un <strong>15% de DESCUENTO</strong> en todo nuestro menú este
+                        fin de semana con el cupón: <strong>PROMO-15</strong>. ¡Te esperamos!</div>
+                      <div class="whatsapp-meta-row">
+                        <span id="promoChatTime">12:45 PM</span>
+                        <span id="promoChatChecks" class="whatsapp-checkmarks">✓✓</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Toast de Envío Masivo Exitoso -->
+              <div id="promoSuccessToast" class="video-order-toast" style="border-left-color:#10b981;">
+                <div class="toast-header-row">
+                  <div style="display:flex; align-items:center; gap:6px;">
+                    <span class="toast-tag-live" style="background:#10b981;">✓ CAMPAÑA ENVIADA</span>
+                    <h5 class="toast-title">148 Mensajes de WhatsApp y Correos Entregados</h5>
+                  </div>
+                  <span style="font-size:0.8rem; font-weight:900; color:#15803d;">Tasa Apertura: 94%</span>
+                </div>
+                <div class="toast-body-row">
+                  <span><strong>Segmento:</strong> Clientes Frecuentes del Mes</span>
+                  <span><strong>Canal:</strong> WhatsApp wa.me / Cloud API</span>
+                </div>
+                <div class="toast-body-row">
+                  <span><strong>Plantilla:</strong> Fin de Semana 15% OFF</span>
+                  <span class="toast-kds-badge" style="background:#dcfce7; color:#15803d; border-color:#86efac;">🚀
+                    Campaña Activa</span>
+                </div>
+              </div>
+
+              <!-- Virtual Cursor inside Promo Video -->
+              <div id="promoVirtualCursor" class="demo-virtual-cursor" style="left:50%; top:50%;">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                  <path d="M5.5 3.2L18.5 12L12.5 13.5L9.5 20.8L5.5 3.2Z" fill="#0f172a" stroke="#ffffff"
+                    stroke-width="2" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div id="promoVirtualPulse" class="demo-click-pulse"></div>
+            </div>
+
+            <!-- Video Player Controls Footer -->
+            <div class="video-controls-bar" style="background:#081d22; border-color:#134e4a;">
+              <div class="video-timeline-wrap">
+                <div id="promoProgressTrack" class="video-progress-track">
+                  <div id="promoProgressBar" class="video-progress-fill" style="background:#10b981;"></div>
+                </div>
+                <div class="video-steps-markers">
+                  <button class="video-step-marker active" data-promo-step="1">1. Audiencia</button>
+                  <button class="video-step-marker" data-promo-step="2">2. Plantilla</button>
+                  <button class="video-step-marker" data-promo-step="3">3. Enviar</button>
+                  <button class="video-step-marker" data-promo-step="4">4. ¡Recibido en WhatsApp!</button>
+                </div>
+              </div>
+
+              <div class="video-actions-row">
+                <div class="video-playback-buttons">
+                  <button id="btnPlayPromoVideo" class="btn-video-control" title="Reproducir / Pausar">
+                    <span id="promoPlayIcon">⏸</span>
+                    <span id="promoPlayLabel">Pausar</span>
+                  </button>
+                  <button id="btnRestartPromoVideo" class="btn-video-control secondary" title="Reiniciar Video">
+                    <span>🔄 Reiniciar</span>
+                  </button>
+                  <span id="promoTimeDisplay" class="video-time-text">0:00 / 0:20</span>
+                </div>
+                <div class="video-quality-tag"
+                  style="background:rgba(16,185,129,0.2); color:#34d399; border-color:#10b981;">
+                  <span>60 FPS • Simulación Real</span>
+                </div>
+              </div>
+
+              <!-- Subtítulos / Narrador dinámico -->
+              <div class="video-narrator-box" style="background:#051417; border-color:#134e4a;">
+                <span class="narrator-icon">🎙️</span>
+                <span id="promoNarratorText" class="narrator-text">Paso 1: Seleccionando segmento de 148 clientes
+                  frecuentes en PuntoGo...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ==================== PLANES Y PRECIOS ==================== -->
   <section id="planes" class="pricing-section">
@@ -1703,7 +2144,6 @@
             <li class="check"><strong>Caja express & mostrador unificado</strong> (1 caja activa)</li>
             <li class="check">1 sucursal y 1 almacén principal</li>
             <li class="check"><strong>Hasta 25 productos</strong> con control de existencias</li>
-            <li class="check"><strong>Descuento de stock directo y recetas</strong> en ventas</li>
             <li class="check"><strong>Corte de caja ciego</strong> y reportes de cierre de turno</li>
             <li class="check">Conteo físico de inventario por categoría</li>
             <li class="check">Hasta 2 roles de usuario (Administrador y Caja)</li>
@@ -1711,15 +2151,15 @@
             <li class="unsupported">Separación de mostrador (preventa) y caja central</li>
             <li class="unsupported">Facturación electrónica CFDI 4.0 SAT</li>
             <li class="unsupported">Clientes a crédito y cotizaciones comerciales</li>
-            <li class="unsupported">Cuentas por pagar a proveedores y compras a crédito</li>
-            <li class="unsupported">Personal & RRHH (checador por PIN, asistencias y nómina)</li>
+            <li class="unsupported">Promociones a clientes (WhatsApp / Correo no disponible)</li>
             <li class="unsupported">Pantalla de Cocina (KDS en tiempo real)</li>
+            <li class="unsupported">Traspasos entre almacenes y compras</li>
+            <li class="unsupported">Personal & RRHH (checador por PIN y nómina)</li>
             <li class="unsupported">Integración Delivery (Rappi & DiDi Food no disponible)</li>
-            <li class="unsupported">Promociones y campañas por WhatsApp y Correo a clientes</li>
             <li class="unsupported">Tienda en Línea & Menú Digital (Solo venta en mostrador)</li>
           </ul>
 
-          <a href="#" class="btn btn-secondary" data-whatsapp-plan="BASICO">
+          <a href="#" class="btn btn-secondary" data-open-trial-modal="true" data-trial-plan="BÁSICO">
             Comenzar con Básico
           </a>
         </div>
@@ -1728,8 +2168,7 @@
         <div class="pricing-card popular">
           <div class="pricing-ribbon">★ MÁS POPULAR / RECOMENDADO</div>
           <h3 class="pricing-title" style="color: var(--primary);">Pro Negocio</h3>
-          <p class="pricing-desc">Cafeterías, restaurantes, boutiques, mini-supers, refaccionarias, retail y comercios
-            en crecimiento.</p>
+          <p class="pricing-desc">Cafeterías, restaurantes, boutiques y comercios en crecimiento.</p>
 
           <div class="pricing-price-wrap">
             <span id="price-pro" class="pricing-amount">$749</span>
@@ -1739,26 +2178,25 @@
           </div>
 
           <ul class="pricing-list">
-            <li class="check" style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:4px 8px; font-weight:800; color:#15803d;">⭐ <strong>Tienda en Línea & Menú Digital:</strong> Catálogo web responsivo, carrito de compras y pedidos directos a tu WhatsApp (hasta 50 productos en web)</li>
+            <li class="check">⭐ <strong>Tienda en Línea & Menú Digital</strong> (Catálogo web responsivo, carrito y
+              pedidos a WhatsApp, 50 productos en web)</li>
             <li class="check"><strong>Separación de Preventa y Caja Central</strong> (vendedores y cobro ágil)</li>
             <li class="check"><strong>Cotizaciones comerciales</strong> con vigencia y conversión a venta en 1 clic</li>
-            <li class="check"><strong>Descuento de stock directo y recetas</strong> con costeo promedio</li>
             <li class="check"><strong>Clientes & Crédito</strong> (hasta 25 clientes, límites de saldo y abonos)</li>
-            <li class="check"><strong>Cuentas por pagar a proveedores</strong> (liquidación de compras a crédito)</li>
-            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food</strong> (hasta 50 pedidos/mes)</li>
-            <li class="check"><strong>División de cuenta (Split Bill)</strong> en cobros en caja</li>
+            <li class="check"><strong>Promociones WhatsApp & Correo en 1 clic</strong> (plantillas de comida/catálogos y
+              control de roles)</li>
             <li class="check"><strong>Pantalla de Cocina KDS en vivo</strong> (SignalR en tiempo real con sonido)</li>
+            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food</strong> (hasta 50 pedidos/mes)</li>
             <li class="check"><strong>Hasta 100 productos</strong> con variantes, extras, modificadores y recetas</li>
             <li class="check"><strong>Facturación CFDI 4.0 SAT</strong> (10 facturas al mes incluidas)</li>
             <li class="check">Hasta 3 bodegas / sucursales y hasta 25 proveedores</li>
             <li class="check"><strong>Hasta 5 roles de usuario</strong> (Caja, Almacén, Gerente, etc.)</li>
             <li class="check"><strong>Conteo Ciego</strong> en cortes y auditorías de inventario</li>
-            <li class="check"><strong>Promociones por WhatsApp & Correo</strong> (Envío directo a clientes en 1 clic)</li>
-            <li class="unsupported">Personal & RRHH (checador por PIN, asistencias y nómina)</li>
+            <li class="unsupported">Personal & RRHH (checador por PIN y nómina)</li>
             <li class="unsupported">Módulo de Compras (Exclusivo Empresarial)</li>
           </ul>
 
-          <a href="#" class="btn btn-primary" data-whatsapp-plan="PRO NEGOCIO">
+          <a href="#" class="btn btn-primary" data-open-trial-modal="true" data-trial-plan="PRO NEGOCIO">
             Comenzar Prueba Pro Gratis
           </a>
         </div>
@@ -1766,8 +2204,7 @@
         <!-- Plan Empresarial -->
         <div class="pricing-card">
           <h3 class="pricing-title">Empresarial</h3>
-          <p class="pricing-desc">Distribuidoras, cadenas comerciales, talleres, franquicias y empresas de alto volumen.
-          </p>
+          <p class="pricing-desc">Distribuidoras, cadenas, franquicias y empresas de alto volumen.</p>
 
           <div class="pricing-price-wrap">
             <span id="price-empresarial" class="pricing-amount">$1,332</span>
@@ -1778,25 +2215,27 @@
           </div>
 
           <ul class="pricing-list">
-            <li class="check" style="background:#f0fdf4; border:1px solid #86efac; border-radius:6px; padding:4px 8px; font-weight:800; color:#15803d;">⭐ <strong>Tienda en Línea & E-Commerce ILIMITADO:</strong> Catálogo web interactivo, carrito de compras, comanda automática a Cocina KDS y recepción en vivo en POS</li>
-            <li class="check"><strong>Catálogo de productos ILIMITADO</strong> con costeo promedio y recetas</li>
-            <li class="check"><strong>Clientes a crédito ILIMITADOS</strong> (Cuentas por cobrar, abonos y saldo a favor)</li>
-            <li class="check"><strong>Cuentas por pagar a Proveedores ILIMITADO</strong> (liquidación de compras a crédito)</li>
-            <li class="check"><strong>Personal & Recursos Humanos ILIMITADO</strong> (Directorio, reloj checador con PIN, control de asistencias, nómina y expediente digital)</li>
-            <li class="check"><strong>Módulo de Compras & Proveedores ILIMITADO</strong> con costeo promedio</li>
-            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food ILIMITADA</strong> (todas tus sucursales)</li>
-            <li class="check"><strong>División de cuenta (Split Bill)</strong> en cobros en caja</li>
+            <li class="check">⭐ <strong>Tienda en Línea & E-Commerce ILIMITADO</strong> (Catálogo web interactivo,
+              carrito, comanda a Cocina KDS y recepción en vivo en POS)</li>
+            <li class="check"><strong>Catálogo de productos ILIMITADO</strong></li>
+            <li class="check"><strong>Campañas Masivas de Promociones</strong> (WhatsApp wa.me, API Cloud y Correo
+              masivo)</li>
+            <li class="check"><strong>Personal & Recursos Humanos ILIMITADO</strong> (Directorio, checador por PIN,
+              asistencias, nómina y expediente digital)</li>
+            <li class="check"><strong>Integración Delivery: Rappi & DiDi Food ILIMITADA</strong> (todas tus sucursales)
+            </li>
             <li class="check"><strong>Facturación electrónica CFDI 4.0 SAT ILIMITADA</strong></li>
+            <li class="check"><strong>Módulo de Compras & Proveedores ILIMITADO</strong> con costeo promedio</li>
             <li class="check"><strong>Multi-Bodega & Sucursales ILIMITADAS</strong></li>
             <li class="check"><strong>Traspasos entre almacenes</strong> con confirmación y acuse de recibo</li>
-            <li class="check"><strong>Campañas masivas por WhatsApp & Correo</strong> (Lotes, filtros de clientes y plantillas)</li>
             <li class="check"><strong>Usuarios y Roles ILIMITADOS</strong> con permisos finos por módulo</li>
-            <li class="check">Monitor de Cocina KDS multi-estación en tiempo real</li>
-            <li class="check">Auditorías de Inventario y Conteo Ciego total multi-rol</li>
-            <li class="check">Importación y exportación masiva (Excel / CSV) & Reportes Gerenciales</li>
+            <li class="check"><strong>Clientes a crédito ILIMITADOS</strong> con estados de cuenta y cobranza</li>
+            <li class="check"><strong>Monitor de Cocina KDS multi-estación</strong> en tiempo real</li>
+            <li class="check"><strong>Auditorías de Inventario y Conteo Ciego total</strong> multi-rol</li>
+            <li class="check"><strong>Importación y exportación masiva</strong> (Excel / CSV)</li>
             <li class="check"><strong>Licencia con respaldo en la nube:</strong> Recuperación inmediata si cambias de
               equipo</li>
-            <li class="check">Soporte prioritario y puesta en marcha guiada</li>
+            <li class="check"><strong>Soporte prioritario</strong> y puesta en marcha guiada</li>
           </ul>
 
           <a href="#" class="btn btn-secondary" data-whatsapp-plan="EMPRESARIAL">
@@ -1825,9 +2264,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>La activación es instantánea: al contratar recibes tu clave de licencia oficial, la pegas en el sistema y
-              se desbloquean tus funciones de inmediato. Además, tu licencia queda respaldada en tu cuenta, por lo que
-              si cambias de computadora o la formateas, la recuperas en 1 clic sin perder días de tu plan.</p>
+            <p>Instantánea. Recibes tu clave de activación al contratar. Tu licencia queda respaldada en la nube para
+              recuperarla en 1 clic si cambias o formateas tu equipo.</p>
           </div>
         </div>
 
@@ -1837,10 +2275,9 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>En el <strong>Plan Básico</strong>, una sola persona atiende y cobra en el mismo mostrador (Venta
-              Express). En el <strong>Plan Pro Negocio y Empresarial</strong>, puedes separar la operación: tus
-              vendedores levantan pedidos o comandas en tablets o mostradores (Preventa) y el cliente pasa a una caja
-              central únicamente a pagar, agilizando enormemente las filas en horas pico.</p>
+            <p>En <strong>Básico</strong>, una persona atiende y cobra en mostrador. En <strong>Pro y
+                Empresarial</strong>, los vendedores toman pedidos en tablets/terminales (Preventa) y el cliente pasa a
+              caja central solo a pagar, agilizando filas.</p>
           </div>
         </div>
 
@@ -1850,9 +2287,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>¡Totalmente! PuntoGo es un sistema 100% modular. Si tu empresa es una ferretería, boutique, papelería,
-              taller o distribuidora comercial, apagas el módulo de cocina en 1 clic y activas solo lo que tu negocio
-              necesita: Caja, Cotizaciones, Clientes a Crédito, Inventario, Compras o Multi-Bodegas.</p>
+            <p>Totalmente. PuntoGo es 100% modular: apagas la cocina con 1 clic y activas solo caja, cotizaciones,
+              crédito, inventario o multi-bodegas según tu giro.</p>
           </div>
         </div>
 
@@ -1862,10 +2298,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>En la sección de <strong>Módulos & Permisos</strong> puedes elegir con un solo clic entre 4 giros
-              pre-configurados (Punto de Venta Básico, Restaurante & Alimentos, Comercial & Servicios y Empresa
-              Completa), o activar y desactivar módulos de forma individual con prácticos interruptores según tu
-              suscripción.</p>
+            <p>Puedes elegir entre 4 giros preconfigurados con un clic, o encender y apagar módulos individuales con
+              interruptores según tus necesidades.</p>
           </div>
         </div>
 
@@ -1875,9 +2309,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>PuntoGo es sumamente ligero. Puedes utilizar cualquier computadora de escritorio, laptop o computadora
-              todo-en-uno con Windows. Es compatible con impresoras térmicas USB o de red (de 58mm y 80mm), lectores de
-              código de barras USB y cajones de dinero estándar.</p>
+            <p>Cualquier PC o laptop con Windows. Es compatible con impresoras térmicas (58 y 80 mm), lectores de código
+              de barras USB y cajones de dinero estándar.</p>
           </div>
         </div>
 
@@ -1887,9 +2320,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>PuntoGo fue diseñado pensando en México y Latinoamérica. El sistema trabaja sobre tu Red Local (LAN).
-              Aunque el módem pierda la señal de internet hacia la calle, tus cajas siguen cobrando, registrando ventas,
-              imprimiendo tickets y sincronizando información sin interrupciones.</p>
+            <p>PuntoGo opera sobre tu Red Local (LAN). Si se va el internet, tus terminales siguen cobrando, registrando
+              ventas e imprimiendo tickets sin detenerse.</p>
           </div>
         </div>
 
@@ -1899,11 +2331,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Es sumamente rápido y sencillo; no requieres de un programador ni de conocimientos técnicos. Solo activas
-              la plataforma desde tu módulo de Delivery, pegas tu Store ID y Token de tu portal de aliados, y copias la
-              URL de Webhook generada en 1 clic para pegarla en tu panel de Rappi o DiDi. A partir de ese momento, cada
-              orden que entre sonará de inmediato en tu pantalla de Cocina KDS con los datos del repartidor asignado,
-              descontando ingredientes y cuadrando tus ventas automáticamente.</p>
+            <p>Toma menos de 60 segundos: activas el módulo, pegas tu Store ID y copias el Webhook. Las órdenes entran
+              directo a cocina KDS y descuentan inventario automáticamente.</p>
           </div>
         </div>
 
@@ -1913,9 +2342,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Solo necesitas conectar una tablet, laptop o monitor en el área de preparación y abrir el módulo de
-              Cocina. En cuanto la caja cobra en mostrador, la orden aparece de inmediato en cocina con sonido de alerta
-              en tiempo real gracias a SignalR, sin necesidad de recargar la página.</p>
+            <p>Abres el módulo en una tablet o pantalla en cocina. Al cobrar en caja o entrar pedido delivery, la orden
+              suena y aparece en tiempo real con semáforo de tiempos.</p>
           </div>
         </div>
 
@@ -1925,9 +2353,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Tienes acceso total durante 15 días con todos los módulos para comprobar la velocidad del sistema. No
-              solicitamos tarjetas de crédito ni datos bancarios. Cargas tus productos reales y pruebas el sistema en tu
-              día a día. Al finalizar, tu información se conserva intacta cuando actives tu plan mensual o anual.</p>
+            <p>Acceso total por 15 días con todos los módulos y sin tarjeta de crédito. Al contratar tu suscripción,
+              conservas intactos todos tus productos y datos.</p>
           </div>
         </div>
 
@@ -1937,8 +2364,8 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>Cuentas con atención directa por WhatsApp para resolver cualquier duda sobre configuración de impresoras,
-              carga de catálogo o capacitación de tu personal.</p>
+            <p>Atención directa por WhatsApp para resolver dudas sobre configuración de impresoras, catálogo o
+              capacitación de personal.</p>
           </div>
         </div>
 
@@ -1953,14 +2380,13 @@
         Empieza hoy mismo sin riesgo
       </div>
       <h2 class="cta-banner-title">
-        Haz que tu negocio trabaje de forma más ágil, modular y ordenada
+        Haz tu negocio más ágil, modular y rentable
       </h2>
       <p class="cta-banner-desc">
-        Únete a los negocios de comercio, servicios y alimentos que ya ahorran horas de trabajo diario, eliminan fugas
-        de dinero y controlan su empresa con PuntoGo.
+        Únete a los negocios que ya ahorran horas de trabajo, eliminan fugas de dinero y crecen con PuntoGo.
       </p>
       <div class="cta-banner-buttons">
-        <a href="#planes" class="btn btn-primary btn-lg" style="background:#ffffff; color:#0f4c81; font-weight:800;">
+        <a href="#planes" class="btn btn-primary btn-lg" data-open-trial-modal="true" style="background:#ffffff; color:#0f4c81; font-weight:800;">
           Comenzar Prueba de 15 Días
         </a>
         <a href="#" class="btn btn-whatsapp btn-lg" data-whatsapp-plan="ASESOR">
@@ -1992,11 +2418,12 @@
           <h4>Módulos</h4>
           <ul class="footer-links">
             <li><a href="#como-funciona">Caja & Corte Ciego</a></li>
-            <li><a href="#como-funciona">Cotizaciones & Clientes</a></li>
+            <li><a href="#como-funciona">Tienda Online & Menú QR</a></li>
+            <li><a href="#promociones">Promociones WhatsApp & Email</a></li>
+            <li><a href="#delivery">Apps Delivery (Rappi & DiDi)</a></li>
             <li><a href="#como-funciona">Inventario & Compras</a></li>
             <li><a href="#como-funciona">Multi-Bodegas & Traspasos</a></li>
             <li><a href="#como-funciona">Cocina KDS en Vivo</a></li>
-            <li><a href="#como-funciona">Personal RRHH & Permisos</a></li>
           </ul>
         </div>
 
@@ -2029,6 +2456,116 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==================== MODAL DE REGISTRO RÁPIDO: PRUEBA 15 DÍAS ==================== -->
+  <div id="modal-registro-prueba" class="trial-modal-backdrop" style="display:none;">
+    <div class="trial-modal-dialog">
+      <button id="btnCloseTrialModal" class="trial-modal-close" aria-label="Cerrar ventana">&times;</button>
+
+      <!-- Vista 1: Formulario de Registro -->
+      <div id="trialFormView">
+        <div class="trial-modal-header">
+          <div class="trial-modal-badge">⚡ Acceso Inmediato • Sin Tarjeta de Crédito</div>
+          <h3 class="trial-modal-title">Prueba PuntoGo 15 Días Gratis</h3>
+          <p class="trial-modal-subtitle">Llena estos datos para activar tu cuenta de prueba con todos los módulos desbloqueados.</p>
+        </div>
+
+        <form id="trialRegisterForm" class="trial-form-grid">
+          <div class="trial-field-group">
+            <label class="trial-label">Tu Nombre Completo *</label>
+            <input type="text" id="trialNombre" class="trial-input" placeholder="Ej. Carlos Morales" required>
+          </div>
+
+          <div class="trial-field-group">
+            <label class="trial-label">Nombre de tu Negocio o Empresa *</label>
+            <input type="text" id="trialNegocio" class="trial-input" placeholder="Ej. Don Go Tacos / Ferretería El Roble" required>
+          </div>
+
+          <div class="trial-field-group">
+            <label class="trial-label">Giro Principal del Negocio *</label>
+            <select id="trialGiro" class="trial-select" required>
+              <option value="" disabled selected>Selecciona tu giro comercial...</option>
+              <option value="Restaurante / Cafetería / Taquería">🍽️ Restaurante, Cafetería, Taquería o Bar (Cocina KDS)</option>
+              <option value="Tienda / Abarrotes / Ferretería">🏪 Tiendita, Abarrotes, Papelería o Ferretería (Caja & Stock)</option>
+              <option value="Boutique / Zapatería / Retail">👗 Boutique, Zapatería o Comercio Retail</option>
+              <option value="Comercializadora / Mayorista / Taller">💼 Comercializadora, Mayorista o Taller (Cotizaciones & Crédito)</option>
+              <option value="Cadena / Franquicia / Múltiples Bodegas">🏢 Cadena, Franquicia o Múltiples Bodegas</option>
+              <option value="Otro Giro Comercial">⚡ Otro Giro Comercial</option>
+            </select>
+          </div>
+
+          <div class="trial-field-group">
+            <label class="trial-label">Tu Número de WhatsApp (10 dígitos) *</label>
+            <div class="trial-phone-wrap">
+              <span class="trial-phone-prefix">🇲🇽 +52</span>
+              <input type="tel" id="trialTelefono" class="trial-input trial-input-phone" placeholder="33 1234 5678" maxlength="14" required>
+            </div>
+            <small class="trial-field-hint">Te enviaremos ahí tu clave de activación de respaldo.</small>
+          </div>
+
+          <div class="trial-field-group">
+            <label class="trial-label">Plan que te gustaría evaluar:</label>
+            <div class="trial-plan-pills">
+              <label class="trial-pill-option">
+                <input type="radio" name="trialPlanRadio" value="BÁSICO">
+                <span class="pill-box">Básico ($415/m)</span>
+              </label>
+              <label class="trial-pill-option">
+                <input type="radio" name="trialPlanRadio" value="PRO NEGOCIO" checked>
+                <span class="pill-box active-rec">⭐ Pro Negocio</span>
+              </label>
+              <label class="trial-pill-option">
+                <input type="radio" name="trialPlanRadio" value="EMPRESARIAL">
+                <span class="pill-box">Empresarial ($1,332/m)</span>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" id="btnSubmitTrialForm" class="btn btn-primary trial-submit-btn">
+            <span>🚀 Activar Mi Prueba de 15 Días Gratis</span>
+          </button>
+        </form>
+
+        <div class="trial-security-footer">
+          <span>🔒 Tus datos están 100% seguros. No solicitamos datos bancarios ni contratos forzosos.</span>
+        </div>
+      </div>
+
+      <!-- Vista 2: Éxito y Generación de Licencia Demo -->
+      <div id="trialSuccessView" style="display:none; text-align:center;">
+        <div class="trial-success-icon">🎉</div>
+        <h3 class="trial-modal-title" style="color:#0f172a; margin-bottom:6px;">¡Tu Prueba de 15 Días está Lista!</h3>
+        <p class="trial-modal-subtitle" style="margin-bottom:14px;">
+          Hemos generado tu acceso gratuito para <strong id="successNegocioLabel" style="color:#0b2545;">tu negocio</strong>.
+        </p>
+
+        <!-- Box de Licencia Demo -->
+        <div class="trial-key-card">
+          <div class="trial-key-caption">CLAVE DE LICENCIA DEMO GENERADA (15 DÍAS ACTIVOS):</div>
+          <div class="trial-key-number" id="trialGeneratedKey">DEMO-PG-2026-8491</div>
+          <button type="button" id="btnCopyTrialKey" class="trial-copy-btn">📋 Copiar Clave</button>
+        </div>
+
+        <div class="trial-success-steps">
+          <div class="step-line"><strong>1.</strong> Copia tu clave y pégala en PuntoGo en tu computadora.</div>
+          <div class="step-line"><strong>2.</strong> Tus cajas, catálogo, menú y módulos quedan activos de inmediato.</div>
+          <div class="step-line"><strong>3.</strong> Te apoyamos directamente en tu WhatsApp para resolver cualquier duda.</div>
+        </div>
+
+        <!-- Botón de WhatsApp con Datos del Lead -->
+        <div class="trial-success-actions">
+          <a href="#" id="btnSuccessWhatsApp" class="btn btn-whatsapp" style="width:100%; justify-content:center; padding:12px; font-weight:800; font-size:0.95rem;">
+            <span>💬</span>
+            <span>Confirmar y Recibir Instalación por WhatsApp</span>
+          </a>
+          <button type="button" id="btnDismissSuccess" class="btn btn-ghost" style="margin-top:10px; font-size:0.85rem; color:#64748b; background:none; border:none; cursor:pointer;">
+            Entendido, cerrar ventana
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- ==================== MODAL DE TÉRMINOS & PRIVACIDAD ==================== -->
   <div id="modal-terminos"
