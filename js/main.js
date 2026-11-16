@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDeliveryVideoPlayer();
   initPromoVideoPlayer();
   initTrialRegisterModal();
+  initFaqModal();
 });
 
 /* ----------------------------------------------------
@@ -1735,4 +1736,44 @@ function initTrialRegisterModal() {
       if (successView) successView.style.display = "block";
     });
   }
+}
+
+/* ==========================================================================
+   10. MODAL DE PREGUNTAS FRECUENTES (BOTÓN FLOTANTE Y NAVBAR)
+   ========================================================================== */
+function initFaqModal() {
+  const modal = document.getElementById("modal-preguntas");
+  if (!modal) return;
+
+  const openTriggers = document.querySelectorAll('[data-open-faq-modal="true"]');
+  const btnClose = document.getElementById("btnCloseFaqModal");
+  const btnDismiss = document.getElementById("btnDismissFaqModal");
+
+  function openFaqModal(e) {
+    if (e) e.preventDefault();
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeFaqModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+  }
+
+  openTriggers.forEach((btn) => {
+    btn.addEventListener("click", openFaqModal);
+  });
+
+  if (btnClose) btnClose.addEventListener("click", closeFaqModal);
+  if (btnDismiss) btnDismiss.addEventListener("click", closeFaqModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeFaqModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "flex") {
+      closeFaqModal();
+    }
+  });
 }

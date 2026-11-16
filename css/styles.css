@@ -2765,11 +2765,42 @@ input:checked+.toggle-slider:before {
   font-size: 0.82rem;
 }
 
-/* Floating WhatsApp Button */
-.whatsapp-floating-btn {
+/* Floating Action Buttons Stack (Preguntas + WhatsApp) */
+.floating-actions-stack {
   position: fixed;
   bottom: 24px;
   right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.faq-floating-btn {
+  background: #0b2545;
+  color: #ffffff;
+  border: 1.5px solid #1e4b85;
+  border-radius: var(--radius-full);
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(11, 37, 69, 0.38);
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.2s ease;
+}
+
+.faq-floating-btn:hover {
+  background: #0f4c81;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(15, 76, 129, 0.48);
+  color: #ffffff;
+}
+
+.whatsapp-floating-btn {
   background: #25D366;
   color: #ffffff;
   border-radius: var(--radius-full);
@@ -2780,7 +2811,6 @@ input:checked+.toggle-slider:before {
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
   font-weight: 800;
   font-size: 0.95rem;
-  z-index: 999;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -3672,15 +3702,25 @@ input:checked+.toggle-slider:before {
     padding: 36px 0 20px;
   }
 
-  /* WhatsApp Floating Button Mobile */
-  .whatsapp-floating-btn {
+  /* Floating Buttons Mobile */
+  .floating-actions-stack {
     bottom: 16px;
     right: 16px;
-    padding: 12px;
-    border-radius: 50%;
-    z-index: 99;
+    gap: 10px;
+    z-index: 999;
   }
 
+  .faq-floating-btn,
+  .whatsapp-floating-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 1.15rem;
+  }
+
+  .faq-floating-btn span.label,
   .whatsapp-floating-btn span.label {
     display: none;
   }
@@ -5414,4 +5454,289 @@ input:checked+.toggle-slider:before {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* ==========================================================================
+   SECCIÓN MISIÓN, VISIÓN Y VALOR (ARRIBA DE PLANES)
+   ========================================================================== */
+.mvv-section {
+  padding: 85px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.mvv-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.mvv-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.mvv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(11, 37, 69, 0.09);
+  border-color: #cbd5e1;
+}
+
+.mvv-card-featured {
+  border-color: #bae6fd;
+  background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 45%);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.08);
+}
+
+.mvv-card-featured:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 18px 40px rgba(14, 165, 233, 0.14);
+}
+
+.mvv-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.mvv-icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.mvv-blue {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.mvv-teal {
+  background: #e0f2fe;
+  border: 1px solid #7dd3fc;
+}
+
+.mvv-emerald {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.mvv-pill-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #0f4c81;
+  border: 1px solid #cbd5e1;
+}
+
+.mvv-pill-teal {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
+}
+
+.mvv-pill-emerald {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
+.mvv-card-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #0b2545;
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.mvv-card-text {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.mvv-card-text strong {
+  color: #0f172a;
+}
+
+.mvv-highlights {
+  list-style: none;
+  padding-top: 16px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mvv-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.mvv-highlights li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.mvv-values-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.mvv-value-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mvv-value-chip strong {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0b2545;
+}
+
+.mvv-value-chip span {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+@media (max-width: 992px) {
+  .mvv-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mvv-section {
+    padding: 60px 0;
+  }
+
+  .mvv-card {
+    padding: 22px 18px;
+  }
+
+  .mvv-values-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   MODAL DE PREGUNTAS FRECUENTES (FAQ MODAL)
+   ========================================================================== */
+.faq-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeInModal 0.25s ease-out;
+}
+
+.faq-modal-dialog {
+  background: #ffffff;
+  color: #1e293b;
+  max-width: 840px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  padding: 32px 28px 24px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: popModal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-modal-dialog .faq-question {
+  padding: 16px 20px;
+  font-size: 0.98rem;
+}
+
+.faq-modal-dialog .faq-answer {
+  padding: 0 20px;
+  font-size: 0.9rem;
+}
+
+.faq-modal-dialog .faq-item.open .faq-answer {
+  padding-bottom: 16px;
+  padding-top: 6px;
+}
+
+.faq-modal-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .faq-modal-dialog {
+    padding: 24px 16px 18px;
+    max-height: 92vh;
+  }
+
+  .faq-modal-dialog .faq-question {
+    padding: 14px 14px;
+    font-size: 0.9rem;
+  }
+
+  .faq-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .faq-modal-footer > div {
+    justify-content: center;
+  }
 }
