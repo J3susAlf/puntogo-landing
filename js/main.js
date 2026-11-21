@@ -756,12 +756,12 @@ const PRICING_DATA = {
     dailyAnnual: 25,
   },
   empresarial: {
-    monthly: 1599,
-    annual: 15990,
-    annualMonthEquivalent: 1332,
-    savingsAnnual: 3198,
-    dailyMonthly: 53,
-    dailyAnnual: 44,
+    monthly: 1799,
+    annual: 17990,
+    annualMonthEquivalent: 1499,
+    savingsAnnual: 3598,
+    dailyMonthly: 60,
+    dailyAnnual: 50,
   },
 };
 
