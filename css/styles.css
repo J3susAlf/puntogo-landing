@@ -2933,19 +2933,20 @@ input:checked+.toggle-slider:before {
 
 .modules-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
 .module-item {
-  background: #f8fafc;
+  background: #ffffff;
   border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-md);
-  padding: 16px 20px;
+  padding: 14px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
+  min-width: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -2957,26 +2958,29 @@ input:checked+.toggle-slider:before {
 
 .module-item.active {
   background: #ffffff;
-  border-color: #93c5fd;
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.08);
+  border-color: #3b82f6;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.1);
 }
 
 .module-item.disabled {
-  opacity: 0.55;
-  background: #f1f5f9;
+  opacity: 0.6;
+  background: #f8fafc;
   border-color: #e2e8f0;
+  box-shadow: none;
 }
 
 .module-info {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
 }
 
 .module-icon {
-  font-size: 1.5rem;
-  width: 40px;
-  height: 40px;
+  font-size: 1.35rem;
+  width: 38px;
+  height: 38px;
   background: rgba(15, 76, 129, 0.08);
   border-radius: 8px;
   display: flex;
@@ -2990,21 +2994,29 @@ input:checked+.toggle-slider:before {
   filter: grayscale(1);
 }
 
+.module-text {
+  min-width: 0;
+  flex: 1;
+}
+
 .module-text h4 {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 800;
   color: var(--gray-900);
   margin-bottom: 2px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .module-status-badge {
   font-size: 0.68rem;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
 }
 
 .module-status-badge.on {
@@ -3018,9 +3030,11 @@ input:checked+.toggle-slider:before {
 }
 
 .module-text p {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--gray-600);
   line-height: 1.35;
+  margin: 0;
+  white-space: normal;
 }
 
 /* Switch Toggle UI */
@@ -3220,7 +3234,8 @@ input:checked+.toggle-slider:before {
   }
 
   .modules-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .problems-grid {
