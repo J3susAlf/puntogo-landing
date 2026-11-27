@@ -5755,3 +5755,132 @@ input:checked+.toggle-slider:before {
     justify-content: center;
   }
 }
+
+
+/* Add-ons Cards en una sola fila compacta */
+.addons-cards-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.addon-card-item {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.addon-card-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.08);
+}
+
+.addon-card-item .addon-icon-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.addon-card-item .addon-icon {
+  font-size: 1.6rem;
+}
+
+.addon-card-item .addon-badge-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.addon-card-item h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.addon-card-item p {
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.addon-card-item .addon-card-footer {
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.addon-card-item .addon-price-num {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.addon-card-item .addon-price-currency {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.addon-card-item .addon-validity-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .addons-cards-row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .addons-cards-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+
+/* Layout de 2 columnas compacto para el configurador de Add-ons */
+.custom-addons-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.custom-addons-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .custom-addons-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .custom-addons-options-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

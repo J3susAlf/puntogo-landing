@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initDeliveryVideoPlayer();
   initPromoVideoPlayer();
   initTrialRegisterModal();
+  initCustomAddonsCalculator();
+  initHardwareKitSelector();
   initFaqModal();
 });
 
@@ -631,6 +633,8 @@ const GIROS_PRESETS = {
 };
 
 function initGirosAndModules() {
+  const giroCardsCheck = document.querySelectorAll(".giro-card");
+  if (!giroCardsCheck.length) return;
   const giroCards = document.querySelectorAll(".giro-card");
   const moduleItems = document.querySelectorAll(".module-item");
   const saveBtn = document.getElementById("saveModulesBtn");
@@ -741,9 +745,9 @@ function initGirosAndModules() {
 const PRICING_DATA = {
   basico: {
     monthly: 499,
-    annual: 4990,
-    annualMonthEquivalent: 415,
-    savingsAnnual: 998,
+    annual: 5100,
+    annualMonthEquivalent: 425,
+    savingsAnnual: 888,
     dailyMonthly: 16,
     dailyAnnual: 14,
   },
@@ -1776,4 +1780,191 @@ function initFaqModal() {
       closeFaqModal();
     }
   });
+}
+
+
+/* ----------------------------------------------------
+   9. Custom Add-ons Calculator & Interactive Package
+   ---------------------------------------------------- */
+function initCustomAddonsCalculator() {
+  const container = document.getElementById("customAddonsCard");
+  if (!container) return;
+
+  const checkboxes = container.querySelectorAll(".custom-addon-checkbox");
+  const countEl = document.getElementById("customAddonCount");
+  const regularEl = document.getElementById("customAddonRegular");
+  const totalEl = document.getElementById("customAddonTotal");
+  const savingsEl = document.getElementById("customAddonSavings");
+  const btnWhatsApp = document.getElementById("btnCustomAddonWhatsApp");
+
+  function calculate() {
+    let regularSum = 0;
+    let selectedPaidCount = 0;
+    let selectedTitles = [];
+
+    checkboxes.forEach((cb) => {
+      const optionRow = cb.closest(".custom-addon-option");
+      const price = parseFloat(cb.getAttribute("data-price") || "0");
+      const title = cb.getAttribute("data-title") || "";
+
+      if (cb.checked) {
+        if (optionRow) {
+          optionRow.style.borderColor = "#0284c7";
+          optionRow.style.background = "#eff6ff";
+        }
+        regularSum += price;
+        if (price > 0) selectedPaidCount++;
+        selectedTitles.push(title);
+      } else {
+        if (optionRow) {
+          optionRow.style.borderColor = "#cbd5e1";
+          optionRow.style.background = "#ffffff";
+        }
+      }
+    });
+
+    let discount = 0;
+    if (selectedPaidCount === 4) {
+      discount = 197;
+    } else if (selectedPaidCount === 3) {
+      discount = 150;
+    } else if (selectedPaidCount === 2) {
+      discount = 100;
+    }
+
+    const finalTotal = Math.max(0, regularSum - discount);
+
+    if (countEl) {
+      countEl.textContent = `${selectedTitles.length} seleccionado${selectedTitles.length === 1 ? "" : "s"}`;
+    }
+
+    if (regularEl) {
+      if (discount > 0) {
+        regularEl.style.display = "inline";
+        regularEl.textContent = `Individual: $${regularSum.toLocaleString("es-MX")} MXN`;
+      } else {
+        regularEl.style.display = "none";
+      }
+    }
+
+    if (savingsEl) {
+      if (discount > 0) {
+        savingsEl.style.display = "inline-block";
+        savingsEl.textContent = `¡Ahorras $${discount.toLocaleString("es-MX")} MXN!`;
+      } else {
+        savingsEl.style.display = "none";
+      }
+    }
+
+    if (totalEl) {
+      totalEl.textContent = `$${finalTotal.toLocaleString("es-MX")}`;
+    }
+
+    if (btnWhatsApp) {
+      const defaultNumber = (window.PUNTOGO_SALES_PHONE || "5213300000000").replace(/[^0-9]/g, "");
+      const itemsListText = selectedTitles.length > 0 ? selectedTitles.join(", ") : "Ninguno";
+      const msg = encodeURIComponent(
+        `¡Hola! Me interesa contratar un paquete personalizado de Add-ons para PuntoGo:\n\n` +
+        `• Complementos elegidos: ${itemsListText}\n` +
+        `• Inversión calculada: $${finalTotal.toLocaleString("es-MX")} MXN\n\n` +
+        `¿Me podrían apoyar para activarlos en mi negocio?`
+      );
+      const waUrl = defaultNumber && defaultNumber !== "5213300000000"
+        ? `https://wa.me/${defaultNumber}?text=${msg}`
+        : `https://wa.me/?text=${msg}`;
+      btnWhatsApp.href = waUrl;
+      btnWhatsApp.target = "_blank";
+    }
+  }
+
+  checkboxes.forEach((cb) => {
+    cb.addEventListener("change", calculate);
+  });
+
+  const optionRows = container.querySelectorAll(".custom-addon-option");
+  optionRows.forEach((row) => {
+    row.addEventListener("click", (e) => {
+      if (e.target.tagName && e.target.tagName.toLowerCase() === "input") return;
+      const cb = row.querySelector(".custom-addon-checkbox");
+      if (cb) {
+        cb.checked = !cb.checked;
+        calculate();
+      }
+    });
+  });
+
+  calculate();
+}
+
+
+/* ----------------------------------------------------
+   10. Hardware Kit Printer Selector (58mm vs 80mm)
+   ---------------------------------------------------- */
+function initHardwareKitSelector() {
+  const options = document.querySelectorAll(".printer-size-option");
+  const kitPrinterDesc = document.getElementById("kitPrinterDesc");
+  const kitIndividualPrice = document.getElementById("kitIndividualPrice");
+  const kitTotalPrice = document.getElementById("kitTotalPrice");
+  const btnKitWhatsApp = document.getElementById("btnKitWhatsApp");
+
+  if (!options.length) return;
+
+  function selectSize(size) {
+    options.forEach(opt => {
+      const optSize = opt.getAttribute("data-printer-size");
+      const radio = opt.querySelector("input[type='radio']");
+      const badge = opt.querySelector(".printer-selected-badge");
+      if (optSize === size) {
+        opt.style.borderColor = "#0284c7";
+        opt.style.background = "#eff6ff";
+        if (radio) radio.checked = true;
+        if (badge) badge.style.display = "inline-block";
+      } else {
+        opt.style.borderColor = "#e2e8f0";
+        opt.style.background = "#f8fafc";
+        if (radio) radio.checked = false;
+        if (badge) badge.style.display = "none";
+      }
+    });
+
+    if (size === "80mm") {
+      if (kitPrinterDesc) kitPrinterDesc.textContent = "Impresora Térmica 80mm (Auto-corte & Red LAN)";
+      if (kitIndividualPrice) kitIndividualPrice.textContent = "Individual: $3,749 MXN";
+      if (kitTotalPrice) kitTotalPrice.textContent = "$3,499";
+      if (btnKitWhatsApp) {
+        btnKitWhatsApp.textContent = "💬 Contratar Kit con Impresora 80mm ($3,499 MXN)";
+        updateWhatsAppUrl("80mm (Auto-corte)", 3499);
+      }
+    } else {
+      if (kitPrinterDesc) kitPrinterDesc.textContent = "Impresora Térmica 58mm (USB/Bluetooth)";
+      if (kitIndividualPrice) kitIndividualPrice.textContent = "Individual: $3,149 MXN";
+      if (kitTotalPrice) kitTotalPrice.textContent = "$2,899";
+      if (btnKitWhatsApp) {
+        btnKitWhatsApp.textContent = "💬 Contratar Kit con Impresora 58mm ($2,899 MXN)";
+        updateWhatsAppUrl("58mm", 2899);
+      }
+    }
+  }
+
+  function updateWhatsAppUrl(size, price) {
+    if (!btnKitWhatsApp) return;
+    const defaultNumber = (window.PUNTOGO_SALES_PHONE || "5213300000000").replace(/[^0-9]/g, "");
+    const msg = encodeURIComponent(
+      `¡Hola! Me interesa adquirir el Kit Completo POS de PuntoGo con Impresora Térmica de ${size} + Cajón de Dinero Automático + Lector Láser con Base por $${price.toLocaleString("es-MX")} MXN. ¿Me podrían dar informes de disponibilidad y envío?`
+    );
+    const waUrl = defaultNumber && defaultNumber !== "5213300000000"
+      ? `https://wa.me/${defaultNumber}?text=${msg}`
+      : `https://wa.me/?text=${msg}`;
+    btnKitWhatsApp.href = waUrl;
+    btnKitWhatsApp.target = "_blank";
+  }
+
+  options.forEach(opt => {
+    opt.addEventListener("click", () => {
+      const size = opt.getAttribute("data-printer-size");
+      selectSize(size);
+    });
+  });
+
+  selectSize("58mm");
 }
